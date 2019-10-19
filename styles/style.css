@@ -96,14 +96,17 @@ body {
     position: relative;
     /* border: 2px rgb(15, 238, 101) solid; */
     height: 500px;
+    max-height: 600px;
     text-align: left;
-    margin: 0px 5%;
+    margin-left: 1%;
+    margin-right: 5%;
     font-family: 'consolas', sans-serif;
     font-size: calc(10px + 0.5vw);
+    overflow: scroll;
 }
 
 #contents li {
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 #contents h4 {
