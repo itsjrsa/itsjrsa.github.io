@@ -1,12 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
+<!-- TODO: gotta add some JS / include for header/footer-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>Hello World</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jrsa@web</title>
+    <link rel='stylesheet' type='text/css' href='styles/style.css'>
+    <link rel='stylesheet' type='text/css' href='styles/style_w_animations.css'>
+    <script type="text/javascript" src="dist/main.js"> </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".reveal").on("click", function (e) {
+                e.preventDefault();
+                $("#contents .content").hide();
+                $("#" + this.id + "_div").show();
+                // document.getElementById("intro_div").style.display = "none";
+                $("#home_div").hide();
+            });
+            $(".revealHome").on("click", function (e) {
+                e.preventDefault();
+                $("#contents .content").hide();
+                $("#home_div").show();
+            });
+            $(".loadHomeDiv").load("home.html");
+            $(".loadWorkDiv").load("work.html");
+            $(".loadPublicationsDiv").load("publications.html");
+            $(".loadAboutDiv").load("about.html");
+        });
+    </script>
 </head>
+
+
 <body>
+    <section id="welcome">
+        <h1 class="txt-rotate revealHome" data-period="500000" data-rotate='[ "Ricardo Andrade"]'>/h1>
+            <h2 class="revealHome">Software Developer &#8651; ML/NLP Enthusiast</h2>
+            <ul class="navbar">
+                <li><span class="reveal" type="button" id="work">/work</span></li>
+                <li><span class="reveal" type="button" id="publications">/publications</span></li>
+                <!-- <li><span class="reveal" type="button" id="about">/about_me</span></li> -->
+            </ul>
+    </section>
 
-Welcome!
+    <section id="contents">
+        <!-- <div id="test">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div> -->
 
+        <div class="revealHome" id="home_div">
+            <div class="loadHomeDiv"></div>
+        </div>
+
+        <div id="work_div" class="content">
+            <div class="loadWorkDiv"></div>
+        </div>
+
+        <div id="publications_div" class="content">
+            <div class="loadPublicationsDiv"></div>
+        </div>
+
+        <div id="about_div" class="content">
+            <div class="loadAboutDiv"></div>
+        </div>
+
+    </section>
+
+    <section id="footer">
+        <div class="contacts">
+            <h1>Contacts:</h1>
+            <div>
+                <a href="https://www.linkedin.com/in/jrsa2012/" class="fa fa-linkedin-square link"></a>
+                <a href="https://github.com/jrsa2012" class="fa fa-github link"></a>
+                <a href="skype:jrsa2012" class="fa fa-skype link"></a>
+                <a href="mailto:jrsa2012@gmail.com" class="fa fa-envelope-square link"></a>
+            </div>
+        </div>
+    </section>
 </body>
+
+
 </html>

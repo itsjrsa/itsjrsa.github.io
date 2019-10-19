@@ -1,0 +1,179 @@
+html {
+  background-color: rgb(0, 0, 0);
+}
+
+.content {
+  display: none;
+  
+}
+
+
+body {
+    background-color: whitesmoke;
+    border: 5px black solid;
+    border-radius: 25px;
+    text-align: center;
+    width: 80%;
+    min-width: 300px;
+    max-width: 1400px;
+    margin: 20px auto;
+    -webkit-animation: 1s ease 0s normal forwards 1 fadein; /* Safari, Chrome and Opera > 12.1 */
+}
+
+
+
+#welcome h1 {
+    color: #525252;
+    font-family: 'consolas', sans-serif;
+    font-size: calc(10px + 2vw);
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 10px;
+    line-height: 1.0em;
+}
+
+
+#welcome h2 {
+    color: #666666;
+    font-family: 'consolas', sans-serif;
+    font-size: calc(7px + 0.9vw);
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+
+    -webkit-animation: 10s ease 0s normal forwards 1 fadein; /* Safari, Chrome and Opera > 12.1 */
+}
+
+
+#welcome {
+    /* border: 2px yellow solid; */
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    top: 0px;
+    
+    }
+
+
+#welcome .navbar {
+    margin-top: 30px;
+    width: 100%;
+    border:1px solid #ccc;
+    border-width:1px 0;
+    list-style:none;
+    padding:10px 0px;
+    text-align:center;
+    
+}
+
+
+#welcome .navbar li{
+    color: rgb(0, 0, 0);
+    font-family: 'consolas', sans-serif;
+    font-size: calc(10px + 0.5vw);
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    padding: 0px 50px;
+    display:inline;
+}
+
+
+#welcome .navbar li:hover {
+    font-weight:bold;
+    text-shadow: 0 0 2px rgba(0,0,0,0.1);
+  }
+
+#welcome .navbar li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0px 50px;
+}
+
+
+#contents {
+    position: relative;
+    /* border: 2px rgb(15, 238, 101) solid; */
+    height: 500px;
+    text-align: left;
+    margin: 0px 5%;
+    font-family: 'consolas', sans-serif;
+    font-size: calc(10px + 0.5vw);
+}
+
+#contents li {
+  margin: 20px 0;
+}
+
+#contents h4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#contents .content {
+  display: none;
+}
+
+
+#footer {
+    position: relative;
+    /* border: 2px rgb(219, 15, 238) solid; */
+    padding-bottom: 10px;
+    -webkit-animation: 10s ease 0s normal forwards 1 fadein; /* Safari, Chrome and Opera > 12.1 */
+}
+
+
+#footer .contacts {
+    width: 100%;
+    text-align: center;
+}
+
+/* Style all font awesome icons */
+#footer .fa {
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+/* Add a hover effect if you want */
+#footer .fa:hover {
+    opacity: 0.7;
+  }
+
+
+#footer h1 {
+    color: #666666;
+    font-family: 'consolas', sans-serif;
+    font-size: calc(5px + 0.9vw);
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Twitter */
+.fa-linkedin-square {
+    color: rgb(41, 103, 196);
+  }
+
+/* Twitter */
+.fa-twitter-square {
+    color: rgb(41, 103, 196);
+  }
+
+/* Github */
+.fa-github {
+    color: rgb(0, 0, 0);
+  }
+
+/* Github */
+.fa-skype {
+  color: rgb(39, 143, 212);
+}
+
+  /* Mail */
+.fa-envelope-square {
+    color: rgb(0, 0, 0);
+  }
+
