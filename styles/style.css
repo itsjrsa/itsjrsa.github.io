@@ -4,7 +4,6 @@ html {
 
 .content {
   display: none;
-  
 }
 
 
@@ -30,6 +29,7 @@ body {
     text-align: center;
     letter-spacing: 10px;
     line-height: 1.0em;
+    cursor: pointer;
 }
 
 
@@ -40,9 +40,10 @@ body {
     font-weight: 600;
     text-align: center;
     letter-spacing: 1px;
-
+    cursor: pointer;
     -webkit-animation: 10s ease 0s normal forwards 1 fadein; /* Safari, Chrome and Opera > 12.1 */
 }
+
 
 
 #welcome {
@@ -53,7 +54,6 @@ body {
     width: 100%;
     position: relative;
     top: 0px;
-    
     }
 
 
@@ -83,6 +83,7 @@ body {
 #welcome .navbar li:hover {
     font-weight:bold;
     text-shadow: 0 0 2px rgba(0,0,0,0.1);
+    cursor: pointer;
   }
 
 #welcome .navbar li a {
@@ -102,12 +103,65 @@ body {
     margin-right: 5%;
     font-family: 'consolas', sans-serif;
     font-size: calc(10px + 0.5vw);
-    overflow: scroll;
+    overflow-x: hidden; 
+    overflow-y: scroll; 
+}
+
+#contents::-webkit-scrollbar { 
+  display: none; 
+} 
+
+#contents a {
+  color: black;
+  text-decoration: none;
+}
+
+#contents a:hover {
+  font-weight:bold;
+  text-shadow: 0 0 2px rgba(0,0,0,0.5);
+  text-decoration: none;
 }
 
 #contents li {
   margin: 30px 0;
+  opacity: 0;
+  -webkit-animation: fadeIn 02s 1;
+  animation: fadeIn 0.2s 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
+
+#contents li {
+  opacity: 0;
+  animation: fadeIn 1.5s 1;
+  animation-fill-mode: forwards;
+}
+
+#contents li:nth-child(5n+1) {
+  animation-delay: 0.5s;
+}
+
+#contents li:nth-child(5n+2) {
+  animation-delay: 1s;
+}
+
+#contents li:nth-child(5n+3) {
+  animation-delay: 1.5s;
+}
+
+#contents li:nth-child(5n+4) {
+  animation-delay: 2s;
+}
+
+#contents li:nth-child(5n+5) {
+  animation-delay: 2.5s;
+}
+
+
+#contents li:nth-child(5n+6) {
+  animation-delay: 3s;
+}
+
 
 #contents h4 {
   margin-bottom: 20px;
