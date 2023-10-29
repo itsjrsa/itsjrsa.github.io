@@ -184,12 +184,65 @@ margin-right: 10px;
 }
 
 /* Media query for smaller screens */
-@media (max-width: 600px) {
+@media (pointer:none), (pointer:coarse) {
+  body {
+    margin: auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 90%;
+    background-color: #fff;
+    overflow-y: scroll; /* Enable vertical scrolling */
+  }
+
+  .pubcontainer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .projcontainer {
+    width: 100%;
+    margin:  0 auto;
+  }
+
+  .projcontainer h1 {
+    font-size: 50px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  
+  .projcontainer h2 {
+    font-size: 30px;
+  }
+
+  .projcontainer p {
+      font-size: 30px;
+    }
+
+  ul.tech-stack-list li {
+    margin-bottom: 10px;
+    margin-left: 40px;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+    border-radius: 4px;
+    font-size: 30px;
+  }
+
   .profile {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+  }
+
+  .profile img {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
   }
 
   .options {
@@ -201,12 +254,46 @@ margin-right: 10px;
   .info {
     text-align: left;
     margin-top: 15px;
-    max-width: 300px;
+    margin-bottom: 20px;
+    max-width: 1200px;
+  }
+
+  .info h1 {
+    font-size: 55px;
+  }
+
+  .info p {
+    font-size: 50px;
   }
 
   .info::after {
     display: none;
   }
+
+  .highlight-on-hover {
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    color: #000;
+    margin: 13px 20px;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+  }
+
+  .social-icon {
+    text-decoration: none;
+    color: #333;
+    font-size: 55px;
+    margin-right: 10px;
+    }
+
+  ol.reference-list li {
+    font-size: 18px;
+    text-align: justify;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
 }
 
 
@@ -250,12 +337,12 @@ ol.reference-list li {
   color: #000;
   display: inline-block;
   padding: 5px 10px;
-  height: 8px;
-  line-height: 8px;
+  height: 15px;
+  line-height: 15px;
   border: 2px solid #000;
   border-radius: 5px;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 18px;
   transition: background-color 0.3s, color 0.3s;
   background-color: #000;
   color: #fff;
