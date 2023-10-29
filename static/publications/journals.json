@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "publication": "R.J. Bessa, F. Moaidi, J. Viana, J.R. Andrade, ”Uncertainty-aware procurement of flexibilities for electrical grid operational planning”, IEEE Transactions on Sustainable Energy, In Press, 2023",
+      "link": "https://zenodo.org/records/8266293"
+    },
+    {
+      "publication": "J. Andrade, C. Rocha, R. Silva, J. P. Viana, R.J. Bessa, C. Gouveia, B. Almeida, R.J. Santos, M. Louro, P. M. Santos, A. F. Ribeiro, ”Data-driven anomaly detection and event log profiling of SCADA alarms,” IEEE Access, vol. 10, pp. 73758-73773, 2022.",
+      "link": "https://ieeexplore.ieee.org/document/9826735"
+    },
+    {
+      "publication": "S. Potenciano Menci, R.J. Bessa, B. Herndler, C. Korner, B. Rao, F. Leimgruber, A. Madureira, D. Rua, F. Coelho, J. Silva, J.R. Andrade, G. Sampaio, H. Teixeira, M. Simões, J. Viana, L. Oliveira, D. Castro, U. Krisper, R. André, ”Functional Scalability and Replicability Analysis for Smart Grid Functions: The InteGrid Project Approach,” Energies, vol. 14, no. 18, pp. 5685, 2021.",
+      "link": "https://www.mdpi.com/1996-1073/14/18/5685"
+    },
+    {
+      "publication": "A. Coronati, J.R. Andrade, R.J. Bessa, ”A deep learning method for forecasting residual market curves,” Electric Power Systems Research, vol. 190, pp. 106756, Jan. 2021.",
+      "link": "https://www.sciencedirect.com/science/article/abs/pii/S0378779620305599?via%3Dihub"
+    },
+    {
+      "publication": "Andrade, J.; Filipe, J.; Reis, M.; and Bessa, R. (2017). Probabilistic Price Forecasting for Day-Ahead and Intraday Markets: Beyond the Statistical Model. Sustainability, vol. 9, no. 11, p. 1990, Oct. 2017.",
+      "link": "https://www.mdpi.com/2071-1050/9/11/1990"
+    },
+    {
+      "publication": "Andrade, J.; Bessa, R. (2017). Improving renewable energy forecasting with a grid of numerical weather predictions. IEEE Trans. Sustain. Energy 2017, 8, 1571–1580.",
+      "link": "https://ieeexplore.ieee.org/document/7903735"
+    }
+  ]
+}

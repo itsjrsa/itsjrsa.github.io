@@ -1,83 +1,35 @@
 <!DOCTYPE html>
-<html>
-
-<!-- TODO: gotta add some JS / include for header/footer-->
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jrsa@web</title>
-    <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico">
-    <link rel='stylesheet' type='text/css' href='styles/style.css'>
-    <link rel='stylesheet' type='text/css' href='styles/style_w_animations.css'>
-    <script type="text/javascript" src="dist/main.js"> </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(function () {
-            $(".reveal").on("click", function (e) {
-                e.preventDefault();
-                $("#contents .content").hide();
-                $("#" + this.id + "_div").show();
-                // document.getElementById("intro_div").style.display = "none";
-                $("#home_div").hide();
-            });
-            $(".revealHome").on("click", function (e) {
-                e.preventDefault();
-                $("#contents .content").hide();
-                $("#home_div").show();
-            });
-            $(".loadHomeDiv").load("home.html");
-            $(".loadWorkDiv").load("work.html");
-            $(".loadPublicationsDiv").load("publications.html");
-            $(".loadProjectsDiv").load("projects.html");
-        });
-    </script>
+  <meta charset="UTF-8">
+  <title>&nbsp;&nbsp;&bull;&nbsp;&nbsp;Ricardo Andrade</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
-
 <body>
-    <section id="welcome">
-        <h1 class="txt-rotate revealHome" data-period="500000" data-rotate='[ "Ricardo Andrade"]'>/h1>
-            <h2 class="revealHome">Software Developer &#8651; Researcher</h2>
-            <ul class="navbar">
-                <li><span class="reveal" type="button" id="work">/work</span></li>
-                <li><span class="reveal" type="button" id="publications">/publications</span></li>
-                <!-- <li><span class="reveal" type="button" id="projects">/projects</span></li> -->
-            </ul>
-    </section>
-
-    <section id="contents">
-        <div class="revealHome" id="home_div">
-            <div class="loadHomeDiv"></div>
+  <div class="container">
+    <div class="profile">
+      
+      <img src="static/images/image.jpg" alt="Your Name">
+      <div class="info">
+        <h1>Ricardo Andrade</h1>
+        <p>R&D Engineer &bull; AI explorer</p>
+        <div class="social-icons">
+          <a href="https://github.com/itsjrsa" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/itsjrsa" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="https://orcid.org/0000-0001-8170-8235" class="social-icon"><i class="fab fa-orcid"></i></a>
+          <a href="mailto:jrsa2012@gmail.com" class="social-icon"><i class="fa fa-envelope-square link"></i></a>
         </div>
-
-        <div id="work_div" class="content">
-            <div class="loadWorkDiv"></div>
+      </div>
+      <div class="options">
+        <div class="button-text">
+          <p class="highlight-on-hover"><a href="experience.html">Experience</a></p>
+          <p class="highlight-on-hover"><a href="programming.html">Programming</a></p>
+          <p class="highlight-on-hover"><a href="publications.html">Publications</a></p>
+          <p class="highlight-on-hover"><a href="https://raw.githubusercontent.com/itsjrsa/cv/master/cv.pdf" download>CV</a></p>
         </div>
-
-        <div id="publications_div" class="content">
-            <div class="loadPublicationsDiv"></div>
-        </div>
-
-        <div id="projects_div" class="content">
-            <div class="loadProjectsDiv"></div>
-        </div>
-
-    </section>
-
-    <section id="footer">
-        <div class="contacts">
-            <h1>Contacts:</h1>
-            <div>
-                <a href="https://www.linkedin.com/in/jrsa2012/" class="fa fa-linkedin-square link"></a>
-                <a href="https://github.com/jrsa2012" class="fa fa-github link"></a>
-                <a href="skype:jrsa2012" class="fa fa-skype link"></a>
-                <a href="mailto:jrsa2012@gmail.com" class="fa fa-envelope-square link"></a>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </div>
 </body>
-
-
 </html>
