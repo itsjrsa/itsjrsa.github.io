@@ -1,6 +1,10 @@
 {
   "items": [
     {
+      "publication": "V. Campos, O. Klyagina, J.R. Andrade, R.J. Bessa, C. Gouveia, ”ML-assistant for human operators using alarm data to solve and classify faults in electrical grids”, Electric Power Systems Research, vol. 236, pp. 110886, Nov. 2024.",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0378779624007727"
+    },
+    {
       "publication": "R.J. Bessa, F. Moaidi, J. Viana, J.R. Andrade, ”Uncertainty-aware procurement of flexibilities for electrical grid operational planning”, IEEE Transactions on Sustainable Energy, In Press, 2023",
       "link": "https://zenodo.org/records/8266293"
     },
