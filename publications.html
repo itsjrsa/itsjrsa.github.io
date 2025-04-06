@@ -2,29 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>&nbsp;&nbsp;&bull;&nbsp;&nbsp;Ricardo Andrade</title>
+  <title>&nbsp;&nbsp;•&nbsp;&nbsp;Ricardo Andrade</title>
   <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <div class="pubcontainer">
-    <div class="return-link">
-      <a href="/">return</a>
-    </div>
-    
-    <h1><i class="fas fa-book" style="margin-right: 10px;"></i>Publications</h1>
 
+  <div class="pubcontainer">
+    <!-- Minimal "back" link at the top (optional) -->
+    <div class="top-bar">
+        <a href="/" class="back-link">
+            <i class="fas fa-chevron-left"></i>
+            Back
+        </a>
+    </div>
+      
+    <h1>
+      <i class="fas fa-book" style="margin-right: 10px;"></i>
+      Publications
+    </h1>
+    
     <!-- Journal publications -->
     <h3>Journals</h3>
-    <ol id="journalsList" class="reference-list"></ol>
+    <div id="journalsList" class="publications-list"></div>
 
     <!-- Conferences publications -->
     <h3>International Conferences</h3>
-    <ol id="conferencesList" class="reference-list"></ol>
+    <div id="conferencesList" class="publications-list"></div>
 
+    <!-- If “working papers” exist, uncomment:
+    <h3>Working Papers</h3>
+    <div id="workingList" class="publications-list"></div>
+    -->
+
+    <!-- JS to fetch JSON data -->
     <script src="script.js"></script>
-
   </div>
-  
 </body>
 </html>
