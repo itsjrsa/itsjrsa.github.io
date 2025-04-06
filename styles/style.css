@@ -251,13 +251,13 @@ a {
 }
 
 .publication-item-title {
-  font-size: 16px;
+  font-size: clamp(20px, 4vw, 20px);
   font-weight: normal;
   margin-bottom: 4px;
 }
 
 .publication-item-journal {
-  font-size: 14px;
+  font-size: clamp(18px, 3.5vw, 18px);
   font-style: italic;
   color: #666;
 }
