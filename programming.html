@@ -3,48 +3,59 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>&nbsp;&nbsp;&bull;&nbsp;&nbsp;Ricardo Andrade</title>
+  <title>&nbsp;&nbsp;•&nbsp;&nbsp;Ricardo Andrade</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
   <div class="projcontainer">
-  <div style="margin-left: 40px;" class="return-link">
-    <a href="/">return</a>
-  </div>
+    
+    <div class="top-bar">
+        <a href="/" class="back-link">
+            <i class="fas fa-chevron-left"></i>
+            Back
+        </a>
+    </div>
 
-  <h1><i class="fas fa-laptop" style="margin-right: 10px; margin-left: 40px; margin-top: 10px;"></i>Tech Stack</h1>
+    <!-- Tech Stack Section -->
+    <h1 class="section-title">
+      <i class="fas fa-laptop" style="margin-right: 10px;"></i>Tech Stack
+    </h1>
+    <div class="tech-stack">
+      <ul class="tech-stack-list">
+        <li class="special"><strong>Docs:</strong> Tex (LaTeX), MS Word</li>
+        <li class="special"><strong>Speaking:</strong> Portuguese, English (proficient)</li>
+        <li class="special"><strong>Programming:</strong> Python (<em>advanced</em>), JavaScript (<em>intermediate</em>), R, Golang, MATLAB, C, C++ (<em>basic</em>)</li>
+        <li><strong>Databases:</strong> PostgreSQL, TimescaleDB, Apache Cassandra</li>
+        <li><strong>Version control:</strong> Git, GitHub/GitLab (+CI/CD)</li>
+        <li><strong>Web Servers:</strong> NGINX, Apache HTTP Webserver</li>
+        <li><strong>Message Brokers/Event Streaming:</strong> RabbitMQ, Apache Kafka</li>
+        <li><strong>Virtualization:</strong> Docker, Oracle VM VirtualBox</li>
+        <li><strong>OS:</strong> macOS, Linux, Windows</li>
+      </ul>
+    </div>
 
-  <ul class="tech-stack-list">
-    <li class="special"><strong>Docs:</strong> Tex (LaTeX), MS Word</li>
-    <li class="special"><strong>Speaking:</strong> Portuguese, English (proficient)</li>
-    <li class="special"><strong>Programming:</strong> Python (<em>advanced</em>), JavaScript (<em>intermediate</em>), R, Golang, MATLAB, C, C++ (<em>basic</em>)</li>
-    <li><strong>Databases:</strong> PostgreSQL, TimescaleDB, Apache Cassandra</li>
-    <li><strong>Version control:</strong> Git, GitHub/GitLab (+CI/CD)</li>
-    <li><strong>Web Servers:</strong> NGINX, Apache HTTP Webserver;</li>
-    <li><strong>Message Brokers/Event Streaming:</strong> RabbitMQ, Apache Kafka</li>
-    <li><strong>Virtualization:</strong> Docker, Oracle VM VirtualBox</li>
-    <li><strong>OS:</strong> macOS, Linux, Windows</li>
-</ul>
+    <div class="horizontal-line"></div>
 
-
-<div class="horizontal-line"></div>
-
-  <h1><i class="fas fa-laptop" style="margin-right: 10px; margin-left: 40px;"></i>Open-source Contributions</h1>
-  <ol>
-    <li class="project">
-      <a href="https://github.com/orgs/INESCTEC/" target="_blank" class="project-link">
-        <div class="project-details">
-          <img src="static/images/inesctec.png" alt="Project 2">
-          <div class="description">
-            <h2>INESC TEC - Open Source Software</h2>
-            <p>Main developer and contributor to projects in the Energy Sector</p>
+    <!-- Open-source Contributions Section -->
+    <h1 class="section-title">
+      <i class="fas fa-laptop" style="margin-right: 10px;"></i>Open-source Contributions
+    </h1>
+    <div class="contributions-list">
+      <div class="project-card">
+        <a href="https://github.com/orgs/INESCTEC/" target="_blank" class="project-link">
+          <div class="project-details">
+            <img src="static/images/inesctec.png" alt="Project Image">
+            <div class="description">
+              <h2>INESC TEC – Open Source Software</h2>
+              <p>Main developer and contributor to projects in the Energy Sector</p>
+            </div>
           </div>
-        </div>
-      </a>
-    </li>
-  </ol>
-</div>
+        </a>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

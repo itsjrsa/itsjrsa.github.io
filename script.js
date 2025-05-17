@@ -1,109 +1,60 @@
-// Add smooth scrolling for anchor links
+// Smooth scrolling for in-page anchors
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      const section = document.querySelector(this.getAttribute('href'));
-      section.scrollIntoView({
-          behavior: 'smooth'
-      });
+    e.preventDefault();
+    const targetSection = document.querySelector(this.getAttribute('href'));
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });
 
-fetch('static/publications/conferences.json')
-  .then(response => response.json())
-  .then(data => {
-    const list = document.getElementById('conferencesList');
+// Generic publication loader
+function loadPublications(endpoint, containerId) {
+  fetch(endpoint)
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      const list = document.getElementById(containerId);
+      data.items.forEach(item => {
+        const linkWrapper = document.createElement('a');
+        linkWrapper.href = item.link;
+        linkWrapper.target = '_blank';
+        linkWrapper.className = 'publication-item-link'; // optional class for styling
 
-    data.items.forEach(item => {
-      const listItem = document.createElement('li');
-      const itemLink = document.createElement('a');
-      const linkButton = document.createElement('div');
-      
-      itemLink.href = item.link;
-      itemLink.target = "_blank";
-      itemLink.style.textDecoration = "none";
-      linkButton.classList.add("link-button");
-      linkButton.textContent = "Link";
+        const container = document.createElement('div');
+        container.className = 'publication-item';
 
-      itemLink.appendChild(linkButton);
-      listItem.appendChild(itemLink);
+        const title = document.createElement('p');
+        title.className = 'publication-item-title';
+        title.textContent = item.publication;
 
-      const paperInfo = document.createTextNode(`${item.publication}`);
-      const journalInfo = document.createElement('i');
-      journalInfo.textContent = item.journal;
+        const journal = document.createElement('p');
+        journal.className = 'publication-item-journal';
+        journal.textContent = item.journal;
 
-      listItem.appendChild(paperInfo);
-      listItem.appendChild(journalInfo);
+        // Optional: remove individual link button if everything is clickable
+        // const link = document.createElement('a');
+        // link.href = item.link;
+        // link.target = '_blank';
+        // link.className = 'link-button';
+        // link.textContent = 'Link';
 
-      list.appendChild(listItem);
-    });
-  })
-  .catch(error => console.error('Error fetching data:', error));
+        // Add elements to the publication item
+        container.appendChild(title);
+        container.appendChild(journal);
 
+        // Wrap it in an anchor so the entire block is clickable
+        linkWrapper.appendChild(container);
+        list.appendChild(linkWrapper);
+      });
+    })
+    .catch(error => console.error(`Failed to load ${containerId}:`, error));
+}
 
-
-fetch('static/publications/journals.json')
-.then(response => response.json())
-.then(data => {
-  const list = document.getElementById('journalsList');
-
-  data.items.forEach(item => {
-    const listItem = document.createElement('li');
-    const itemLink = document.createElement('a');
-    const linkButton = document.createElement('div');
-    
-    itemLink.href = item.link;
-    itemLink.target = "_blank";
-    itemLink.style.textDecoration = "none";
-    linkButton.classList.add("link-button");
-    linkButton.textContent = "Link";
-
-    itemLink.appendChild(linkButton);
-    listItem.appendChild(itemLink);
-
-    const paperInfo = document.createTextNode(`${item.publication}`);
-    const journalInfo = document.createElement('i');
-    journalInfo.textContent = item.journal;
-
-    listItem.appendChild(paperInfo);
-    listItem.appendChild(journalInfo);
-
-    list.appendChild(listItem);
-  });
-})
-.catch(error => console.error('Error fetching data:', error));
-
-
-fetch('static/publications/working.json')
-.then(response => response.json())
-.then(data => {
-  const list = document.getElementById('workingList');
-
-  data.items.forEach(item => {
-    const listItem = document.createElement('li');
-    const itemLink = document.createElement('a');
-    const linkButton = document.createElement('div');
-    
-    itemLink.href = item.link;
-    itemLink.target = "_blank";
-    itemLink.style.textDecoration = "none";
-    linkButton.classList.add("link-button");
-    linkButton.textContent = "Link";
-
-    itemLink.appendChild(linkButton);
-    listItem.appendChild(itemLink);
-
-    const paperInfo = document.createTextNode(`${item.publication}`);
-    const journalInfo = document.createElement('i');
-    journalInfo.textContent = item.journal;
-
-    listItem.appendChild(paperInfo);
-    listItem.appendChild(journalInfo);
-
-    list.appendChild(listItem);
-  });
-})
-.catch(error => console.error('Error fetching data:', error));
-
-
+// Load all publication sections
+loadPublications('static/publications/journals.json', 'journalsList');
+loadPublications('static/publications/conferences.json', 'conferencesList');
+loadPublications('static/publications/working.json', 'workingList');
