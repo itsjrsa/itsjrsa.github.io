@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Business Card</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 30px; /* Increased padding */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 500px; /* Reduced width */
+      width: 100%;
+    }
+
+    .card img {
+      width: 150px; /* Increased image size */
+      height: 150px;
+      border-radius: 50%;
+      margin-right: 20px; /* Adjusted spacing */
+    }
+
+    .card-content {
+      flex: 1;
+    }
+
+    .card h1 {
+      margin: 10px 0;
+      font-size: 1.2em; /* Further reduced font size for the name */
+      color: #333;
+    }
+
+    .card h2 {
+      margin: 10px 0;
+      font-size: 1.2em; /* Reduced font size */
+      color: #0092bc; /* Updated color for company name */
+    }
+
+    .card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center align icons with the portrait */
+      margin-left: 0; /* Remove left margin */
+    }
+
+    .social-icons a {
+      margin-bottom: 15px; /* Increased vertical spacing */
+      color: #555;
+      text-decoration: none;
+      font-size: 1.8em; /* Further increased icon size */
+    }
+
+    .social-icons a:hover {
+      color: #000;
+    }
+
+    .company-logo {
+      max-height: 50px; /* Limit the height */
+      height: auto; /* Maintain aspect ratio */
+      width: auto; /* Let width adjust automatically */
+      margin: -25px; /* Remove extra space */
+      padding: 0; /* Remove padding to reduce empty space */
+    }
+
+    @media (max-width: 768px) {
+      body {
+        display: flex; /* Ensure flexbox is applied */
+        flex-direction: column; /* Stack body contents vertically */
+        justify-content: center; /* Center contents vertically */
+        align-items: center; /* Center contents horizontally */
+        height: auto; /* Allow body height to adjust to content */
+        padding: 20px; /* Add padding for better spacing */
+      }
+
+      .card {
+        display: flex; /* Ensure flexbox is applied */
+        flex-direction: column; /* Stack contents vertically */
+        align-items: center; /* Center align contents */
+        text-align: center; /* Center text alignment */
+        margin: 0; /* Remove extra margins */
+        width: 100%; /* Take full width of the viewport */
+        max-width: none; /* Remove max-width restriction */
+        box-shadow: none; /* Remove shadow for a cleaner look */
+        padding: 20px; /* Adjust padding for vertical layout */
+      }
+
+      .card img {
+        width: 120px; /* Reduce image size for mobile */
+        height: 120px; /* Maintain aspect ratio */
+        margin: 0 0 20px 0; /* Add margin below the image */
+      }
+
+      .social-icons {
+        display: flex; /* Ensure flexbox is applied */
+        flex-direction: row; /* Align icons in a row */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        justify-content: center; /* Center align icons */
+        margin-top: 20px; /* Add spacing above social icons */
+      }
+
+      .social-icons a {
+        margin: 20px; /* Increased spacing around each icon */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="static/images/portrait-jrsa.png" alt="Portrait of Ricardo Andrade">
+    <div class="card-content">
+      <h2>INESC TEC</h2>
+      <h1>José Ricardo Andrade</h1>
+      <p>jose.r.andrade@inesctec.pt</p>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/itsjrsa" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/itsjrsa" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://orcid.org/0000-0001-8170-8235" target="_blank" aria-label="ORCID">
+        <i class="fab fa-orcid"></i>
+      </a>
+      <a href="https://www.itsjrsa.com" target="_blank" aria-label="Website">
+        <i class="fas fa-globe"></i>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

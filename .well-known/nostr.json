@@ -1,0 +1,18 @@
+{
+    "names": {
+        "itsjrsa": "8ce38ccd95dd30745865d877a5eb3db3a0e051617e1f549c3254298254dbd8f6"
+    },
+    "relays": {
+        "8ce38ccd95dd30745865d877a5eb3db3a0e051617e1f549c3254298254dbd8f6": [
+            "wss://nostr.eden.land",
+            "wss://nostr.relay.damus.io",
+            "wss://relay.snort.social",
+            "wss://relay.orangepill.dev",
+            "wss://nos.lol",
+            "wss://nostr.land",
+            "wss://nostr.plantroon.com",
+            "wss://nostr-middling.mydns.jp",
+            "wss://nostr.wine"
+        ]
+    }
+}
