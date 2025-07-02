@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "publication": "O. Klyagina, C. Silva, A. Silva, T. Guedes, J.R. Andrade, R.J. Bessa, Graph neural networks for fault location in large photovoltaic power plants, IEEE PowerTech 2025 Conference, Kiel, Germany, 29 June-3 July 2025.",
+      "link": ""
+    },
+    {
+      "publication": "O. Klyagina, W. Xia, J.R. Andrade, Pedro P. Vergara, R.J. Bessa, Synthetic data generation for wind energy forecasting: Comparison between statistical and deep learning models, 2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC), Vienna, Austria, 5-8 October 2025.",
+      "link": ""
+    },
+    {
+      "publication": "C. Silva, F. Lobo, J. Ricardo Andrade, Ricardo J. Bessa, Dynamic pricing in EV charging stations with renewable energy and battery storage, 20th International Conference on the European Energy Market (EEM24), Istanbul, Turkey, 10-12 June 2024.",
+      "link": ""
+    },
+    {
+      "publication": "P. Viegas, J. Simões, P. Silva, D. Cabral, M. Gomes, A. Rodrigues, L. Gonçalves, C. Costa, R.J. Bessa, J. Pereira, P. Benedicto, M. Simões, R. Andrade, J. Viana, M. Araújo, M. Azevedo, The next generation of ADMS functions for predictive management of DER, 27th International Conference and Exhibition on Electricity Distribution (CIRED 2023), Rome, Italy, 12-15 June 2023.",
+      "link": ""
+    },
+    {
       "publication": "V. Campos, J.R. Andrade, R.J. Bessa, C. Gouveia, ”ML-assistant for human operators to solve faults and classify events complexity in electrical grids,” 13th Mediterranean Conference on Power Generation, Transmission, Distribution and Energy Conversion (MEDPOWER), Malta, 7-9 Nov. 2022.",
       "link": "https://ieeexplore.ieee.org/document/10137616"
     },

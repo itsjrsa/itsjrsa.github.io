@@ -1,8 +1,12 @@
 {
   "items": [
     {
-      "publication": "R.J. Bessa, F. Moaidi, J. Viana, J.R. Andrade, ”Uncertainty-aware procurement of flexibilities for electrical grid operational planning”, IEEE Transactions on Sustainable Energy, In Press, 2023",
-      "link": "https://zenodo.org/records/8266293"
+      "publication": "Carlos A. M. Silva, J. R. Andrade, A. Ferreira, A. Gomes, R.J. Bessa, Dynamic incentives for electric vehicles charging: Causal insights on demand flexibility, working paper, 2025.",
+      "link": ""
+    },
+    {
+      "publication": "R.J. Bessa, F. Moaidi, J. Viana, J.R. Andrade, Uncertainty-aware procurement of flexibilities for electrical grid operational planning, IEEE Transactions on Sustainable Energy, vol. 15, no. 2, pp. 789-802, Apr. 2024",
+      "link": "https://www.sciencedirect.com/science/article/pii/S1364032123008778?via%3Dihub"
     },
     {
       "publication": "J. Andrade, C. Rocha, R. Silva, J. P. Viana, R.J. Bessa, C. Gouveia, B. Almeida, R.J. Santos, M. Louro, P. M. Santos, A. F. Ribeiro, ”Data-driven anomaly detection and event log profiling of SCADA alarms,” IEEE Access, vol. 10, pp. 73758-73773, 2022.",
