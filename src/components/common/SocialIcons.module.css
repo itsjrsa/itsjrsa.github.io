@@ -1,0 +1,22 @@
+.socialIcons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.socialIcon {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.socialIcon:hover {
+  color: var(--color-accent-blue);
+}
+
+@media (max-width: 768px) {
+  .socialIcon {
+    font-size: 40px;
+  }
+}

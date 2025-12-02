@@ -1,0 +1,32 @@
+.back {
+  margin-bottom: 30px;
+}
+
+.back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back a:hover {
+  color: var(--color-text);
+}
+
+.arrow {
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.back a:hover .arrow {
+  transform: translateX(-3px);
+}
+
+@media (max-width: 768px) {
+  .back a {
+    font-size: 16px;
+  }
+}

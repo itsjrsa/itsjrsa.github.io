@@ -1,0 +1,14 @@
+.typing {
+  display: inline;
+}
+
+.cursor {
+  opacity: 0;
+  transition: opacity 0.1s;
+  color: #555;
+  font-weight: 300;
+}
+
+.cursor.visible {
+  opacity: 1;
+}

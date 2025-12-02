@@ -1,0 +1,125 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 14px 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: var(--color-border-hover);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardHeader i {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.hint {
+  margin-left: auto;
+  color: var(--color-text-light);
+  font-size: 12px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card:hover .hint {
+  transform: rotate(180deg);
+}
+
+/* Collapsed state - hide skills */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+/* Expanded state on hover */
+.card:hover .skills {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: var(--color-tag-bg);
+  border: 1px solid var(--color-tag-border);
+  border-radius: 16px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.level {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 2px 5px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  color: var(--color-text-light);
+}
+
+[data-theme="dark"] .level {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 10px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .cardHeader h3 {
+    font-size: 16px;
+  }
+
+  /* Always expanded on mobile */
+  .skills {
+    max-height: none;
+    opacity: 1;
+    margin-top: 14px;
+  }
+
+  .hint {
+    display: none;
+  }
+
+  .tag {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}

@@ -1,0 +1,50 @@
+.card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+  max-width: 1000px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.image {
+  width: 150px;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.content {
+  padding: 20px;
+}
+
+.content h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.content p {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .content h2 {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+}
