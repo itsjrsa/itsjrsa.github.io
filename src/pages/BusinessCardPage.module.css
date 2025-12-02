@@ -1,0 +1,115 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.company {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0092bc;
+}
+
+.name {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.email {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.social a {
+  color: var(--color-text-muted);
+  font-size: 22px;
+  transition: color 0.2s ease;
+}
+
+.social a:hover {
+  color: var(--color-accent-blue);
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+    box-shadow: none;
+    border: none;
+  }
+
+  .photo {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 10px;
+  }
+
+  .content {
+    margin-bottom: 10px;
+  }
+
+  .company {
+    font-size: 18px;
+  }
+
+  .name {
+    font-size: 22px;
+  }
+
+  .email {
+    font-size: 16px;
+  }
+
+  .social {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 10px;
+  }
+
+  .social a {
+    font-size: 28px;
+  }
+}

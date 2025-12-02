@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import ExperiencePage from './pages/ExperiencePage'
 import ProgrammingPage from './pages/ProgrammingPage'
 import PublicationsPage from './pages/PublicationsPage'
+import BusinessCardPage from './pages/BusinessCardPage'
 import ThemeToggle from './components/common/ThemeToggle'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/programming" element={<ProgrammingPage />} />
           <Route path="/publications" element={<PublicationsPage />} />
+          <Route path="/businesscard" element={<BusinessCardPage />} />
         </Routes>
       </AnimatePresence>
       <ThemeToggle />
