@@ -1,27 +1,84 @@
-.grid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* Bento Grid Container */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 12px;
   margin-bottom: 40px;
 }
 
-.card {
+/* Card Size Variations */
+.cardLarge {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.cardMediumTall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.cardMediumWide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.cardSmall {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.cardFullWidth {
+  grid-column: span 4;
+  grid-row: span 1;
+}
+
+/* Bento Card Base */
+.bentoCard {
+  position: relative;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 14px 20px;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s ease,
+              transform 0.2s ease,
+              box-shadow 0.3s ease;
 }
 
-.card:hover {
+.bentoCard:hover {
   border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
+[data-theme="dark"] .bentoCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Accent Bar */
+.accentBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  opacity: 0.85;
+}
+
+/* Card Content */
+.cardContent {
+  padding: 16px 16px 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Header */
 .cardHeader {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .cardHeader i {
@@ -32,61 +89,48 @@
 
 .cardHeader h3 {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--color-text);
 }
 
-.hint {
-  margin-left: auto;
-  color: var(--color-text-light);
-  font-size: 12px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.card:hover .hint {
-  transform: rotate(180deg);
-}
-
-/* Collapsed state - hide skills */
+/* Skills Grid */
 .skills {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  margin-top: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  flex: 1;
+  align-content: flex-start;
 }
 
-/* Expanded state on hover */
-.card:hover .skills {
-  max-height: 200px;
-  opacity: 1;
-  margin-top: 14px;
-}
-
+/* Skill Tags */
 .tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 10px;
+  gap: 5px;
+  padding: 4px 10px;
   background: var(--color-tag-bg);
   border: 1px solid var(--color-tag-border);
   border-radius: 16px;
   font-size: 12px;
   color: var(--color-text-muted);
-  transition: background-color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease;
 }
 
+.tag:hover {
+  background: var(--color-border);
+  border-color: var(--color-border-hover);
+}
+
+/* Proficiency Level Badge */
 .level {
-  font-size: 9px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  padding: 2px 5px;
+  padding: 2px 6px;
   background: rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--color-text-light);
 }
 
@@ -94,32 +138,52 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-@media (max-width: 768px) {
-  .grid {
+/* Tablet Responsive (1024px) */
+@media (max-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, auto);
     gap: 10px;
   }
 
-  .card {
-    padding: 16px;
+  .cardLarge,
+  .cardFullWidth {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .cardMediumTall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* Mobile Responsive (768px) */
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cardLarge,
+  .cardMediumTall,
+  .cardMediumWide,
+  .cardSmall,
+  .cardFullWidth {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .cardContent {
+    padding: 14px;
   }
 
   .cardHeader h3 {
-    font-size: 16px;
-  }
-
-  /* Always expanded on mobile */
-  .skills {
-    max-height: none;
-    opacity: 1;
-    margin-top: 14px;
-  }
-
-  .hint {
-    display: none;
+    font-size: 15px;
   }
 
   .tag {
     font-size: 13px;
-    padding: 6px 12px;
+    padding: 5px 12px;
   }
 }

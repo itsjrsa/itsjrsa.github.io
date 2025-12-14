@@ -1,30 +1,10 @@
 export const techStackData = [
   {
     id: 1,
-    category: 'Languages',
-    icon: 'fas fa-code',
-    color: '#3498db',
-    skills: [
-      { name: 'Python' },
-      { name: 'JavaScript (React, Vue)' }
-    ]
-  },
-  {
-    id: 2,
-    category: 'Databases',
-    icon: 'fas fa-database',
-    color: '#9b59b6',
-    skills: [
-      { name: 'PostgreSQL' },
-      { name: 'TimescaleDB' },
-      { name: 'Apache Cassandra' }
-    ]
-  },
-  {
-    id: 3,
     category: 'DevOps & Infrastructure',
     icon: 'fas fa-server',
     color: '#e67e22',
+    gridSize: 'large',
     skills: [
       { name: 'Docker' },
       { name: 'Git' },
@@ -34,37 +14,58 @@ export const techStackData = [
     ]
   },
   {
-    id: 4,
+    id: 2,
+    category: 'Databases',
+    icon: 'fas fa-database',
+    color: '#9b59b6',
+    gridSize: 'small',
+    skills: [
+      { name: 'PostgreSQL' },
+      { name: 'TimescaleDB' },
+      { name: 'Apache Cassandra' }
+    ]
+  },
+  {
+    id: 3,
     category: 'Data & Messaging',
     icon: 'fas fa-exchange-alt',
     color: '#1abc9c',
+    gridSize: 'small',
     skills: [
       { name: 'RabbitMQ' },
       { name: 'Apache Kafka' }
     ]
   },
   {
-    id: 5,
-    category: 'Environment',
-    icon: 'fas fa-desktop',
-    color: '#34495e',
+    id: 4,
+    category: 'Programming',
+    icon: 'fas fa-code',
+    color: '#3498db',
+    gridSize: 'mediumWide',
     skills: [
-      { name: 'macOS' },
-      { name: 'Linux' },
-      { name: 'Windows' },
-      { name: 'VirtualBox' }
+      { name: 'Python' },
+      { name: 'JavaScript (React, Vue)' },
+      { name: 'SQL' },
+      { name: 'Bash' },
+      { name: 'Tailwind' }
     ]
   },
   {
-    id: 6,
-    category: 'Languages & Docs',
-    icon: 'fas fa-globe',
-    color: '#27ae60',
+    id: 5,
+    category: 'Tools & Productivity',
+    icon: 'fas fa-tools',
+    color: '#e74c3c',
+    gridSize: 'mediumWide',
     skills: [
-      { name: 'Portuguese', level: 'native' },
-      { name: 'English', level: 'proficient' },
+      { name: 'VS Code' },
+      { name: 'PyCharm' },
+      { name: 'Claude + MCP' },
+      { name: 'GitHub Copilot' },
+      { name: 'Obsidian' },
+      { name: 'Overleaf' },
       { name: 'LaTeX' },
-      { name: 'MS Office' }
+      { name: 'Mermaid' },
+      { name: 'Excalidraw' }
     ]
   }
 ]
