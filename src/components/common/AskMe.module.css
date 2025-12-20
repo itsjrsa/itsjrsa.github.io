@@ -32,7 +32,7 @@
   color: var(--color-text-muted);
   font-size: 16px;
   outline: none;
-  width: 220px;
+  width: 320px;
   padding: 4px 8px;
 }
 
@@ -59,6 +59,30 @@
   cursor: not-allowed;
 }
 
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 320px;
+}
+
+.exampleBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+  opacity: 0.7;
+}
+
+.exampleBtn:hover {
+  color: var(--color-text);
+  opacity: 1;
+}
+
 .error {
   padding: 8px 14px;
   color: #e74c3c;
@@ -74,10 +98,18 @@
 }
 
 .answer p {
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   font-size: 13px;
   line-height: 1.5;
   color: var(--color-text);
+}
+
+.disclaimer {
+  display: block;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  margin-bottom: 8px;
 }
 
 .resetBtn {

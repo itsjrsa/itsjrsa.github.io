@@ -3,12 +3,26 @@ import styles from './AskMe.module.css'
 
 const API_URL = 'https://askme-api.itsjrsa.workers.dev'
 
+const EXAMPLE_QUESTIONS = [
+  "What's your tech stack?",
+  "Tell me about your research",
+  "What projects have you worked on?",
+  "Where do you work?",
+  "What's your background?",
+  "What databases do you use?",
+  "Have you published any papers?",
+  "What programming languages do you know?",
+  "What tools do you use daily?",
+  "How can I contact you?"
+]
+
 export default function AskMe() {
   const [isWriting, setIsWriting] = useState(false)
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [exampleIndex, setExampleIndex] = useState(0)
   const inputRef = useRef(null)
   const containerRef = useRef(null)
 
@@ -17,6 +31,16 @@ export default function AskMe() {
       inputRef.current.focus()
     }
   }, [isWriting])
+
+  useEffect(() => {
+    if (!isWriting || answer || loading) return
+
+    const interval = setInterval(() => {
+      setExampleIndex((i) => (i + 1) % EXAMPLE_QUESTIONS.length)
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [isWriting, answer, loading])
 
   useEffect(() => {
     if (!isWriting) return
@@ -73,6 +97,34 @@ export default function AskMe() {
     }
   }
 
+  const handleExampleClick = async (q) => {
+    if (loading) return
+    setQuestion(q)
+    setLoading(true)
+    setError('')
+    setAnswer('')
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: q }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to get response')
+      }
+
+      setAnswer(data.answer)
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   if (!isWriting) {
     return (
       <button
@@ -109,11 +161,24 @@ export default function AskMe() {
         )}
       </form>
 
+      {!answer && !loading && (
+        <>
+          <button
+            className={styles.exampleBtn}
+            onClick={() => handleExampleClick(EXAMPLE_QUESTIONS[exampleIndex])}
+          >
+            {EXAMPLE_QUESTIONS[exampleIndex]}
+          </button>
+          <span className={styles.disclaimer}>powered by AI</span>
+        </>
+      )}
+
       {error && <div className={styles.error}>{error}</div>}
 
       {answer && (
         <div className={styles.answer}>
           <p>{answer}</p>
+          <span className={styles.disclaimer}>powered by AI</span>
           <button className={styles.resetBtn} onClick={handleClose}>
             ask another
           </button>
