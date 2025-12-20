@@ -139,6 +139,15 @@ export default function AskMe() {
 
   return (
     <div className={styles.container} ref={containerRef}>
+      {!answer && !loading && (
+        <button
+          className={styles.exampleBtn}
+          onClick={() => handleExampleClick(EXAMPLE_QUESTIONS[exampleIndex])}
+        >
+          {EXAMPLE_QUESTIONS[exampleIndex]}
+        </button>
+      )}
+
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           ref={inputRef}
@@ -163,15 +172,7 @@ export default function AskMe() {
       </form>
 
       {!answer && !loading && (
-        <>
-          <button
-            className={styles.exampleBtn}
-            onClick={() => handleExampleClick(EXAMPLE_QUESTIONS[exampleIndex])}
-          >
-            {EXAMPLE_QUESTIONS[exampleIndex]}
-          </button>
-          <span className={styles.disclaimer}>powered by AI</span>
-        </>
+        <span className={styles.disclaimer}>powered by AI</span>
       )}
 
       {error && <div className={styles.error}>{error}</div>}
