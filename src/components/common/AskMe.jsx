@@ -130,9 +130,9 @@ export default function AskMe() {
       <button
         className={styles.trigger}
         onClick={() => setIsWriting(true)}
-        aria-label="Ask me something"
+        aria-label="Ask me anything"
       >
-        ask me something
+        ask me anything
       </button>
     )
   }
