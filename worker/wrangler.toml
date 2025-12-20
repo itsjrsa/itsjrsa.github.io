@@ -1,0 +1,6 @@
+name = "askme-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://www.itsjrsa.com"

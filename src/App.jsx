@@ -6,6 +6,8 @@ import ProgrammingPage from './pages/ProgrammingPage'
 import PublicationsPage from './pages/PublicationsPage'
 import BusinessCardPage from './pages/BusinessCardPage'
 import ThemeToggle from './components/common/ThemeToggle'
+import AskMe from './components/common/AskMe'
+import styles from './App.module.css'
 
 function App() {
   const location = useLocation()
@@ -21,7 +23,10 @@ function App() {
           <Route path="/businesscard" element={<BusinessCardPage />} />
         </Routes>
       </AnimatePresence>
-      <ThemeToggle />
+      <div className={styles.bottomControls}>
+        <AskMe />
+        <ThemeToggle />
+      </div>
     </>
   )
 }
