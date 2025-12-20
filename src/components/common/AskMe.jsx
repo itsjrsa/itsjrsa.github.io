@@ -37,7 +37,7 @@ export default function AskMe() {
 
     const interval = setInterval(() => {
       setExampleIndex((i) => (i + 1) % EXAMPLE_QUESTIONS.length)
-    }, 3000)
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [isWriting, answer, loading])
@@ -149,6 +149,7 @@ export default function AskMe() {
           placeholder="type your question..."
           className={styles.input}
           disabled={loading}
+          maxLength={300}
         />
         {question.trim() && (
           <button
