@@ -1,9 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import styles from './AskMe.module.css'
 
-const API_URL = import.meta.env.PROD
-  ? 'https://askme-api.YOUR_SUBDOMAIN.workers.dev'  // TODO: Update after deploying worker
-  : 'http://localhost:8787'
+const API_URL = 'https://askme-api.itsjrsa.workers.dev'
 
 export default function AskMe() {
   const [isWriting, setIsWriting] = useState(false)
