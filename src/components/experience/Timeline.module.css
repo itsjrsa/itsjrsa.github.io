@@ -1,15 +1,19 @@
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 32px;
 }
 
 .card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 24px;
-  transition: background-color 0.3s, border-color 0.3s;
+  border-left: 2px solid var(--color-border);
+  padding-left: 24px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  transition: border-color 0.3s;
+}
+
+.card:hover {
+  border-left-color: var(--color-text-muted);
 }
 
 .header {
@@ -26,32 +30,11 @@
 }
 
 .badge {
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 4px 10px;
-  border-radius: 12px;
   font-weight: 500;
-}
-
-.badge.work {
-  background: #e8f4fc;
-  color: #2980b9;
-}
-
-.badge.education {
-  background: #e8fcf0;
-  color: #27ae60;
-}
-
-[data-theme="dark"] .badge.work {
-  background: #1a3a4a;
-  color: #5dade2;
-}
-
-[data-theme="dark"] .badge.education {
-  background: #1a3a2a;
-  color: #58d68d;
+  color: var(--color-text-muted);
 }
 
 .role {
@@ -72,20 +55,18 @@
   font-size: 14px;
   color: var(--color-text-muted);
   line-height: 1.6;
-  margin: 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--color-border);
+  margin: 12px 0 0 0;
 }
 
 @media (max-width: 768px) {
   .card {
-    padding: 20px;
+    padding-left: 16px;
   }
 
   .header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
   }
 
   .role {
