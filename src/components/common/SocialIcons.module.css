@@ -15,8 +15,28 @@
   color: var(--color-accent-blue);
 }
 
+.cvIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cvText {
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  padding: 2px 6px;
+  line-height: 1;
+}
+
 @media (max-width: 768px) {
   .socialIcon {
     font-size: 40px;
+  }
+
+  .cvText {
+    font-size: 22px;
+    padding: 4px 10px;
   }
 }

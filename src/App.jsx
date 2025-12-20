@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import ExperiencePage from './pages/ExperiencePage'
 import ProgrammingPage from './pages/ProgrammingPage'
 import PublicationsPage from './pages/PublicationsPage'
+import ProjectsPage from './pages/ProjectsPage'
 import BusinessCardPage from './pages/BusinessCardPage'
 import ThemeToggle from './components/common/ThemeToggle'
 import AskMe from './components/common/AskMe'
@@ -20,6 +21,7 @@ function App() {
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/programming" element={<ProgrammingPage />} />
           <Route path="/publications" element={<PublicationsPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/businesscard" element={<BusinessCardPage />} />
         </Routes>
       </AnimatePresence>

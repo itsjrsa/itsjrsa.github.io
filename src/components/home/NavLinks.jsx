@@ -6,7 +6,7 @@ const links = [
   { to: '/experience', label: 'Experience' },
   { to: '/programming', label: 'Programming' },
   { to: '/publications', label: 'Publications' },
-  { href: 'https://raw.githubusercontent.com/itsjrsa/cv/master/cv.pdf', label: 'CV', external: true }
+  { to: '/projects', label: 'Projects' }
 ]
 
 export default function NavLinks() {
@@ -19,13 +19,7 @@ export default function NavLinks() {
     >
       {links.map((link) => (
         <p key={link.label} className={styles.navLink}>
-          {link.external ? (
-            <a href={link.href} download>
-              {link.label}
-            </a>
-          ) : (
-            <Link to={link.to}>{link.label}</Link>
-          )}
+          <Link to={link.to}>{link.label}</Link>
         </p>
       ))}
     </motion.nav>

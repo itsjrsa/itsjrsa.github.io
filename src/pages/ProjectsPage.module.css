@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.content {
+  width: 80%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.content h1 {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+/* Bento Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 15px;
+  }
+
+  .content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .content h1 {
+    font-size: 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
