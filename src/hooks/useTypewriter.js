@@ -30,14 +30,19 @@ export function useTypewriter(text, speed = 80, delay = 500) {
     }
   }, [text, speed, delay])
 
-  // Blinking cursor effect
+  // Blinking cursor effect - stops when typing is complete
   useEffect(() => {
+    if (isComplete) {
+      setShowCursor(false)
+      return
+    }
+
     const cursorInterval = setInterval(() => {
       setShowCursor(prev => !prev)
     }, 530)
 
     return () => clearInterval(cursorInterval)
-  }, [])
+  }, [isComplete])
 
   return { displayText, isComplete, showCursor }
 }
