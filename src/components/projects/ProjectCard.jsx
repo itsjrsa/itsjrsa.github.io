@@ -1,8 +1,18 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './ProjectCard.module.css'
 
 export default function ProjectCard({ project, isExpanded, onToggle }) {
+  const [copied, setCopied] = useState(false)
   const sizeClass = styles[project.size] || styles.medium
+  const categoryClass = styles[project.category] || ''
+
+  const handleCopyCitation = (e) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(project.citation)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   return (
     <motion.div
@@ -14,11 +24,16 @@ export default function ProjectCard({ project, isExpanded, onToggle }) {
       transition={{ layout: { duration: 0.3 } }}
     >
       <div className={styles.content}>
+        <div className={styles.header}>
+          <span className={`${styles.categoryBadge} ${categoryClass}`}>
+            {project.category}
+          </span>
+          <span className={styles.year}>{project.year}</span>
+        </div>
+
         <h3 className={styles.title}>{project.title}</h3>
 
-        <p className={styles.description}>
-          {isExpanded ? project.abstract : project.shortDesc}
-        </p>
+        <p className={styles.venue}>{project.venue}</p>
 
         {project.image && (
           <div className={styles.imageWrapper}>
@@ -33,6 +48,23 @@ export default function ProjectCard({ project, isExpanded, onToggle }) {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
           >
+            {project.abstract && (
+              <p className={styles.abstract}>{project.abstract}</p>
+            )}
+
+            <div className={styles.citationBlock}>
+              <div className={styles.citationHeader}>
+                <span className={styles.citationLabel}>Citation</span>
+                <button
+                  className={styles.copyButton}
+                  onClick={handleCopyCitation}
+                >
+                  {copied ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+              <p className={styles.citation}>{project.citation}</p>
+            </div>
+
             {project.tags && project.tags.length > 0 && (
               <div className={styles.tags}>
                 {project.tags.map((tag) => (
@@ -49,7 +81,7 @@ export default function ProjectCard({ project, isExpanded, onToggle }) {
                 className={styles.link}
                 onClick={(e) => e.stopPropagation()}
               >
-                View Project →
+                View Publication →
               </a>
             )}
           </motion.div>

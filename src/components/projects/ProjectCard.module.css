@@ -1,14 +1,12 @@
 /* Base Card - ChromaDB inspired */
 .card {
   border: 2px solid var(--color-border);
+  background-color: var(--color-bg);
   cursor: pointer;
-  transition: border-color 0.2s ease;
-  min-height: 150px;
+  min-height: 120px;
+  margin: -1px;
 }
 
-.card:hover {
-  border-color: var(--color-text-muted);
-}
 
 /* Size variations for bento grid */
 .large {
@@ -31,29 +29,58 @@
 
 /* Content */
 .content {
-  padding: 20px;
+  padding: 16px;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* Title - uppercase like ChromaDB */
-.title {
-  font-size: 13px;
+/* Header with category badge and year */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Category badge */
+.categoryBadge {
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: var(--color-text);
-  margin: 0 0 12px 0;
 }
 
-/* Description */
-.description {
-  font-size: 14px;
-  line-height: 1.6;
+.journal {
+  color: #2563eb;
+}
+
+.conference {
+  color: #059669;
+}
+
+/* Year */
+.year {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Title */
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+/* Venue */
+.venue {
+  font-size: 11px;
+  font-style: italic;
   color: var(--color-text-muted);
   margin: 0;
-  flex: 1;
 }
 
 /* Image */
@@ -73,9 +100,63 @@
 
 /* Expanded content */
 .expandedContent {
-  margin-top: 20px;
+  margin-top: 16px;
   padding-top: 16px;
-  border-top: 2px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Abstract */
+.abstract {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0 0 16px 0;
+}
+
+/* Citation block */
+.citationBlock {
+  background-color: var(--color-bg-secondary, rgba(128, 128, 128, 0.1));
+  padding: 12px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--color-border);
+}
+
+.citationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.citationLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+}
+
+.copyButton {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copyButton:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.citation {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin: 0;
+  font-family: inherit;
 }
 
 /* Tags */
@@ -98,7 +179,7 @@
   font-size: 13px;
   color: var(--color-text);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .link:hover {
@@ -119,14 +200,18 @@
   }
 
   .content {
-    padding: 16px;
+    padding: 14px;
   }
 
   .title {
-    font-size: 12px;
+    font-size: 11px;
   }
 
-  .description {
+  .venue {
+    font-size: 10px;
+  }
+
+  .abstract {
     font-size: 13px;
   }
 }

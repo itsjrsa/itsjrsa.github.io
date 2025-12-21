@@ -3,10 +3,10 @@ import { motion, LayoutGroup } from 'framer-motion'
 import PageTransition from '../components/Layout/PageTransition'
 import ReturnButton from '../components/common/ReturnButton'
 import ProjectCard from '../components/projects/ProjectCard'
-import { projectsData } from '../data/projects'
-import styles from './ProjectsPage.module.css'
+import { researchData } from '../data/research'
+import styles from './ResearchPage.module.css'
 
-export default function ProjectsPage() {
+export default function ResearchPage() {
   const [expandedId, setExpandedId] = useState(null)
   const containerRef = useRef(null)
 
@@ -38,8 +38,8 @@ export default function ProjectsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
-          <i className="fas fa-flask" style={{ marginRight: '10px' }}></i>
-          Projects
+          <i className="fas fa-microscope" style={{ marginRight: '10px' }}></i>
+          Research
         </motion.h1>
 
         <LayoutGroup>
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
             ref={containerRef}
             layout
           >
-            {projectsData.map((project, index) => (
+            {researchData.map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}

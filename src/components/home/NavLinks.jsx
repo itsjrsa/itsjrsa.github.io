@@ -5,8 +5,7 @@ import styles from './NavLinks.module.css'
 const links = [
   { to: '/experience', label: 'Experience' },
   { to: '/programming', label: 'Programming' },
-  { to: '/publications', label: 'Publications' },
-  { to: '/projects', label: 'Projects' }
+  { to: '/research', label: 'Research' }
 ]
 
 export default function NavLinks() {
