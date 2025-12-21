@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import PageTransition from '../components/Layout/PageTransition'
 import ReturnButton from '../components/common/ReturnButton'
 import PublicationList from '../components/publications/PublicationList'
+import { journalsData, conferencesData } from '../data/publications'
 import styles from './PublicationsPage.module.css'
 
 export default function PublicationsPage() {
@@ -21,12 +22,12 @@ export default function PublicationsPage() {
 
         <PublicationList
           title="Journals"
-          jsonPath="/publications/journals.json"
+          publications={journalsData}
         />
 
         <PublicationList
           title="International Conferences"
-          jsonPath="/publications/conferences.json"
+          publications={conferencesData}
         />
       </div>
     </PageTransition>

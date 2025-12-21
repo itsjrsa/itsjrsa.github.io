@@ -17,7 +17,7 @@ export default function ProjectCard({ project, isExpanded, onToggle }) {
         <h3 className={styles.title}>{project.title}</h3>
 
         <p className={styles.description}>
-          {isExpanded ? project.fullDesc : project.shortDesc}
+          {isExpanded ? project.abstract : project.shortDesc}
         </p>
 
         {project.image && (
