@@ -19,7 +19,7 @@ export default function ProfileCard() {
       <div className={styles.info}>
         <h1>Ricardo Andrade</h1>
         <p>
-          <TypingEffect text="R&D Engineer • AI explorer" speed={60} delay={400} />
+          <TypingEffect text="R&D engineer • AI explorer" speed={60} delay={400} />
         </p>
         <SocialIcons />
       </div>
