@@ -13,8 +13,14 @@
 
 .content h1 {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   font-size: 24px;
+}
+
+.sectionDesc {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin: 0 0 20px 0;
 }
 
 .divider {
@@ -22,6 +28,11 @@
   height: 4px;
   background: linear-gradient(to right, rgba(204, 204, 204, 0), #CCCCCC, rgba(204, 204, 204, 0));
   margin: 30px 0;
+}
+
+.calendarWrapper {
+  margin-bottom: 30px;
+  overflow-x: auto;
 }
 
 @media (max-width: 768px) {
