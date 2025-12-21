@@ -94,6 +94,12 @@ export default function AskMe() {
     setError('')
   }
 
+  const handleReset = () => {
+    setQuestion('')
+    setAnswer('')
+    setError('')
+  }
+
   const handleKeyDown = (e) => {
     if (e.key === 'Escape') {
       handleClose()
@@ -149,40 +155,43 @@ export default function AskMe() {
 
   return (
     <div className={`${styles.container} ${!isHomePage ? styles.withCard : ''}`} ref={containerRef}>
-      {!answer && !loading && (
-        <button
-          className={styles.exampleBtn}
-          onClick={() => handleExampleClick(EXAMPLE_QUESTIONS[exampleIndex])}
-        >
-          {EXAMPLE_QUESTIONS[exampleIndex]}
-        </button>
-      )}
+      {!answer && (
+        <>
+          {!loading && (
+            <button
+              className={styles.exampleBtn}
+              onClick={() => handleExampleClick(EXAMPLE_QUESTIONS[exampleIndex])}
+            >
+              {EXAMPLE_QUESTIONS[exampleIndex]}
+            </button>
+          )}
 
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          ref={inputRef}
-          type="text"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="type your question..."
-          className={styles.input}
-          disabled={loading}
-          maxLength={300}
-        />
-        {question.trim() && (
-          <button
-            type="submit"
-            className={styles.submitBtn}
-            disabled={loading}
-          >
-            {loading ? '...' : '↵'}
-          </button>
-        )}
-      </form>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <input
+              ref={inputRef}
+              type="text"
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder={loading ? 'thinking...' : 'type your question...'}
+              className={styles.input}
+              disabled={loading}
+              maxLength={300}
+            />
+            {question.trim() && !loading && (
+              <button
+                type="submit"
+                className={styles.submitBtn}
+              >
+                ↵
+              </button>
+            )}
+          </form>
 
-      {!answer && !loading && (
-        <span className={styles.disclaimer}>powered by AI</span>
+          {!loading && (
+            <span className={styles.disclaimer}>powered by AI</span>
+          )}
+        </>
       )}
 
       {error && <div className={styles.error}>{error}</div>}
@@ -191,7 +200,7 @@ export default function AskMe() {
         <div className={styles.answer}>
           <p>{answer}</p>
           <span className={styles.disclaimer}>powered by AI</span>
-          <button className={styles.resetBtn} onClick={handleClose}>
+          <button className={styles.resetBtn} onClick={handleReset}>
             ask another
           </button>
         </div>
