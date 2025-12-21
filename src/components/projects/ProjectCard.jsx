@@ -24,16 +24,16 @@ export default function ProjectCard({ project, isExpanded, onToggle }) {
       transition={{ layout: { duration: 0.3 } }}
     >
       <div className={styles.content}>
-        <div className={styles.header}>
+        <motion.div layout="position" className={styles.header}>
           <span className={`${styles.categoryBadge} ${categoryClass}`}>
             {project.category}
           </span>
           <span className={styles.year}>{project.year}</span>
-        </div>
+        </motion.div>
 
-        <h3 className={styles.title}>{project.title}</h3>
+        <motion.h3 layout="position" className={styles.title}>{project.title}</motion.h3>
 
-        <p className={styles.venue}>{project.venue}</p>
+        <motion.p layout="position" className={styles.venue}>{project.venue}</motion.p>
 
         {project.image && (
           <div className={styles.imageWrapper}>
