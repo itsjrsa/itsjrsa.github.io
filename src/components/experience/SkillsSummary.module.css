@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 0;
+}
+
+.skill {
+  font-size: 13px;
+  padding: 4px 0;
+  color: var(--color-text);
+}
+
+.skill:not(:last-child)::after {
+  content: '·';
+  margin: 0 10px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .category {
+    font-size: 12px;
+  }
+
+  .skill {
+    font-size: 12px;
+  }
+}
