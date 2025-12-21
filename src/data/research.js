@@ -3,6 +3,7 @@
  *
  * Unified data for all research outputs: journals and conferences.
  * Ordered by year (most recent first).
+ * IDs are descending so new publications can use the next higher ID.
  */
 
 export const researchData = [
@@ -10,7 +11,7 @@ export const researchData = [
   // 2025
   // ============================================
   {
-    id: 1,
+    id: 14,
     title: "Dynamic incentives for electric vehicles charging at supermarket stations: Causal insights on demand flexibility",
     authors: "C.A.M. Silva, J.R. Andrade, A. Ferreira, A. Gomes, R.J. Bessa",
     venue: "Energy",
@@ -24,7 +25,7 @@ export const researchData = [
     size: "medium"
   },
   {
-    id: 2,
+    id: 13,
     title: "Graph neural networks for fault location in large photovoltaic power plants",
     authors: "O. Klyagina, C. Silva, A. Silva, T. Guedes, J.R. Andrade, R.J. Bessa",
     venue: "IEEE PowerTech 2025",
@@ -38,7 +39,7 @@ export const researchData = [
     size: "small"
   },
   {
-    id: 3,
+    id: 12,
     title: "Synthetic data generation for wind energy forecasting: Comparison between statistical and deep learning models",
     authors: "O. Klyagina, W. Xia, J.R. Andrade, P.P. Vergara, R.J. Bessa",
     venue: "IEEE SMC 2025",
@@ -56,7 +57,7 @@ export const researchData = [
   // 2024
   // ============================================
   {
-    id: 4,
+    id: 11,
     title: "Enhancing the European power system resilience with a recommendation system for voluntary demand response",
     authors: "J.R. Andrade, C. Gouveia, R. Silva, et al.",
     venue: "iScience",
@@ -70,7 +71,7 @@ export const researchData = [
     size: "medium"
   },
   {
-    id: 5,
+    id: 10,
     title: "ML-assistant for human operators using alarm data to solve and classify faults in electrical grids",
     authors: "V. Campos, O. Klyagina, J.R. Andrade, R.J. Bessa, C. Gouveia",
     venue: "Electric Power Systems Research",
@@ -84,7 +85,7 @@ export const researchData = [
     size: "small"
   },
   {
-    id: 6,
+    id: 9,
     title: "Uncertainty-aware procurement of flexibilities for electrical grid operational planning",
     authors: "R.J. Bessa, F. Moaidi, J. Viana, J.R. Andrade",
     venue: "IEEE Transactions on Sustainable Energy",
@@ -102,7 +103,7 @@ export const researchData = [
   // 2022
   // ============================================
   {
-    id: 7,
+    id: 8,
     title: "Data-Driven Anomaly Detection and Event Log Profiling of SCADA Alarms",
     authors: "J.R. Andrade, C. Rocha, R. Silva, J.P. Viana, R.J. Bessa, C. Gouveia, B. Almeida, R.J. Santos, M. Louro, P.M. Santos, A.F. Ribeiro",
     venue: "IEEE Access",
@@ -116,7 +117,7 @@ export const researchData = [
     size: "medium"
   },
   {
-    id: 8,
+    id: 7,
     title: "ML-assistant for human operators to solve faults and classify events complexity in electrical grids",
     authors: "V. Campos, J.R. Andrade, R.J. Bessa, C. Gouveia",
     venue: "MEDPOWER 2022",
@@ -134,7 +135,7 @@ export const researchData = [
   // 2021
   // ============================================
   {
-    id: 9,
+    id: 6,
     title: "Functional Scalability and Replicability Analysis for Smart Grid Functions: The InteGrid Project Approach",
     authors: "S. Potenciano Menci, R.J. Bessa, B. Herndler, et al.",
     venue: "Energies",
@@ -148,7 +149,7 @@ export const researchData = [
     size: "small"
   },
   {
-    id: 10,
+    id: 5,
     title: "A Deep Learning Method for Forecasting Residual Market Curves",
     authors: "A. Coronati, J.R. Andrade, R.J. Bessa",
     venue: "Electric Power Systems Research",
@@ -162,7 +163,7 @@ export const researchData = [
     size: "medium"
   },
   {
-    id: 11,
+    id: 4,
     title: "Innovative applications of artificial intelligence on SCADA data",
     authors: "B. Almeida, R.J. Santos, M. Louro, P.M. Santos, A.F. Ribeiro, R.J. Bessa, C. Gouveia, J.R. Andrade, R.E. Silva, C.N. Rocha, J.P. Viana",
     venue: "CIRED 2021",
@@ -180,7 +181,7 @@ export const researchData = [
   // 2018
   // ============================================
   {
-    id: 12,
+    id: 3,
     title: "Data economy for prosumers in a smart grid ecosystem",
     authors: "R.J. Bessa, D. Rua, C. Abreu, P. Machado, J.R. Andrade, R. Pinto, C. Gonçalves, M. Reis",
     venue: "e-Energy 2018",
@@ -198,13 +199,13 @@ export const researchData = [
   // 2017
   // ============================================
   {
-    id: 13,
+    id: 2,
     title: "Probabilistic Price Forecasting for Day-Ahead and Intraday Markets: Beyond the Statistical Model",
     authors: "J.R. Andrade, J. Filipe, M. Reis, R.J. Bessa",
     venue: "Sustainability",
     year: 2017,
     citation: "J.R. Andrade, J. Filipe, M. Reis, R.J. Bessa, \"Probabilistic Price Forecasting for Day-Ahead and Intraday Markets: Beyond the Statistical Model,\" Sustainability, vol. 9, no. 11, p. 1990, Oct. 2017.",
-    abstract: null,
+    abstract: "Forecasting the hourly spot price of day-ahead and intraday markets is particularly challenging in electric power systems characterized by high installed capacity of renewable energy technologies. In particular, periods with low and high price levels are difficult to predict due to a limited number of representative cases in the historical dataset, which leads to forecast bias problems and wide forecast intervals. Moreover, these markets also require the inclusion of multiple explanatory variables, which increases the complexity of the model without guaranteeing a forecasting skill improvement. This paper explores information from daily futures contract trading and forecast of the daily average spot price to correct point and probabilistic forecasting bias. It also shows that an adequate choice of explanatory variables and use of simple models like linear quantile regression can lead to highly accurate spot price point and probabilistic forecasts. In terms of point forecast, the mean absolute error was 3.03 €/MWh for day-ahead market and a maximum value of 2.53 €/MWh was obtained for intraday session 6. The probabilistic forecast results show sharp forecast intervals and deviations from perfect calibration below 7% for all market sessions.",
     image: null,
     tags: ["price forecasting", "electricity markets", "probabilistic forecasting"],
     category: "journal",
@@ -212,7 +213,7 @@ export const researchData = [
     size: "small"
   },
   {
-    id: 14,
+    id: 1,
     title: "Improving Renewable Energy Forecasting with a Grid of Numerical Weather Predictions",
     authors: "J.R. Andrade, R.J. Bessa",
     venue: "IEEE Transactions on Sustainable Energy",
