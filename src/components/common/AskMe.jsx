@@ -81,7 +81,7 @@ export default function AskMe() {
 
       setAnswer(data.answer)
     } catch (err) {
-      setError(err.message || 'Something went wrong. Please try again.')
+      setError('Unable to answer right now. Please try again later.')
     } finally {
       setLoading(false)
     }
@@ -122,7 +122,7 @@ export default function AskMe() {
 
       setAnswer(data.answer)
     } catch (err) {
-      setError(err.message || 'Something went wrong. Please try again.')
+      setError('Unable to answer right now. Please try again later.')
     } finally {
       setLoading(false)
     }
