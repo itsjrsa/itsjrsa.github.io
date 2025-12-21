@@ -15,7 +15,7 @@ export default function SocialIcons() {
         <a
           key={social.label}
           href={social.href}
-          className={`${styles.socialIcon} ${social.isCV ? styles.cvIcon : ''}`}
+          className={styles.socialIcon}
           target={social.href.startsWith('mailto') ? undefined : '_blank'}
           rel="noopener noreferrer"
           aria-label={social.label}
