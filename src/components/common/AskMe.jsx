@@ -131,11 +131,18 @@ export default function AskMe() {
   if (!isWriting) {
     return (
       <button
-        className={styles.trigger}
+        className={`${styles.trigger} ${!isHomePage ? styles.triggerCompact : ''}`}
         onClick={() => setIsWriting(true)}
         aria-label="Ask me anything"
       >
-        ask me anything
+        {isHomePage ? (
+          'ask me anything'
+        ) : (
+          <>
+            <span className={styles.icon}>?</span>
+            <span className={styles.triggerText}>ask me anything</span>
+          </>
+        )}
       </button>
     )
   }

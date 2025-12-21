@@ -54,6 +54,38 @@
   );
 }
 
+/* Compact trigger for non-home pages */
+.triggerCompact {
+  padding: 8px 14px;
+  overflow: hidden;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.triggerCompact:hover {
+  padding: 8px 16px;
+}
+
+.icon {
+  font-weight: 700;
+}
+
+.triggerText {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  vertical-align: middle;
+  transition: max-width 0.3s ease, margin 0.3s ease;
+}
+
+.triggerCompact:hover .icon {
+  display: none;
+}
+
+.triggerCompact:hover .triggerText {
+  max-width: 150px;
+}
+
 .container {
   display: flex;
   flex-direction: column;

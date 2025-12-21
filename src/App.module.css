@@ -9,3 +9,8 @@
   gap: 8px;
   z-index: 100;
 }
+
+.bottomControls.compact {
+  flex-direction: row;
+  gap: 12px;
+}

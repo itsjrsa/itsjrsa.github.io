@@ -25,7 +25,7 @@ function App() {
           <Route path="/businesscard" element={<BusinessCardPage />} />
         </Routes>
       </AnimatePresence>
-      <div className={styles.bottomControls}>
+      <div className={`${styles.bottomControls} ${location.pathname !== '/' ? styles.compact : ''}`}>
         <AskMe />
         <ThemeToggle />
       </div>
