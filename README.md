@@ -1,6 +1,16 @@
-# itsjrsa.com
+# Ricardo's Personal Website
+
+**[www.itsjrsa.com](https://www.itsjrsa.com)**
 
 Personal portfolio website built with React and Vite, deployed on GitHub Pages.
+
+## Features
+
+- Light/dark theme with persistent preference
+- AI-powered "Ask Me Anything" chatbot
+- GitHub contributions calendar
+- Skills & expertise section
+- Responsive design
 
 ## Tech Stack
 
@@ -40,14 +50,31 @@ worker/           # Cloudflare Worker for Ask Me API
 
 The "Ask Me Anything" feature uses a Cloudflare Worker to proxy requests to Google's Gemini API, answering questions about my background and work.
 
+### How it works
+
+
+**Technologies:**
+- **Frontend**: React component with state management for question/answer flow
+- **API**: Cloudflare Worker (edge deployment, ~50ms latency)
+- **LLM**: Google Gemini API with custom system prompt containing portfolio context (other LLMs can be swapped in)
+- **Security**: Rate limiting, input validation, CORS handling
+
+**Flow:**
+1. User clicks the "?" button (or "ask me anything" on desktop homepage)
+2. An input form appears with rotating example questions
+3. User types a question or clicks a suggested example
+4. The frontend sends a POST request to the Cloudflare Worker
+5. The Worker validates the request, applies rate limiting, and forwards to Gemini with portfolio context
+6. The answer is displayed to the user with an option to ask another question
+
 ### Setup
 
-1. Install Wrangler CLI:
+1. Install [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/):
    ```bash
    npm install -g wrangler
    ```
 
-2. Navigate to worker directory:
+2. Navigate to the `worker` directory:
    ```bash
    cd worker
    npm install
