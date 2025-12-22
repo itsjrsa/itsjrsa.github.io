@@ -54,6 +54,25 @@
   );
 }
 
+.trigger::after {
+  content: attr(data-hint);
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 10px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.trigger:hover::after {
+  opacity: 1;
+}
+
 /* Compact trigger for non-home pages */
 .triggerCompact {
   padding: 8px 14px;
@@ -84,6 +103,19 @@
 
 .triggerCompact:hover .triggerText {
   max-width: 150px;
+}
+
+/* Homepage trigger - full text on desktop, compact on mobile */
+.triggerHome .icon {
+  display: none;
+}
+
+.triggerHome .triggerText {
+  max-width: 150px;
+}
+
+.triggerHome::after {
+  display: none;
 }
 
 .container {
@@ -221,6 +253,26 @@
 }
 
 @media (max-width: 768px) {
+  .trigger {
+    padding: 6px 12px;
+    font-size: 14px;
+    min-width: 42px;
+    text-align: center;
+  }
+
+
+  .trigger .triggerText {
+    display: none;
+  }
+
+  .trigger .icon {
+    display: inline;
+  }
+
+  .triggerHome::after {
+    display: block;
+  }
+
   .container {
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(24px) saturate(180%);
