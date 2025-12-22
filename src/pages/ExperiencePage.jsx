@@ -18,24 +18,12 @@ export default function ExperiencePage() {
           <i className="fas fa-user-tie" style={{ marginRight: '10px' }}></i>
           Experience
         </motion.h1>
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.15 }}
-        >
-          Skills & Expertise
-        </motion.h2>
+        <h2>Skills & Expertise</h2>
         <SkillsSummary />
 
         <div className={styles.divider}></div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-        >
-          Work & Education
-        </motion.h2>
+        <h2>Work & Education</h2>
         <Timeline />
       </div>
     </PageTransition>
