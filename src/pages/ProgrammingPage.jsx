@@ -32,9 +32,9 @@ export default function ProgrammingPage() {
         <ReturnButton />
 
         <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
         >
           <i className="fas fa-laptop" style={{ marginRight: '10px' }}></i>
           Tech Stack
@@ -43,7 +43,7 @@ export default function ProgrammingPage() {
           className={styles.sectionDesc}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.15 }}
         >
           Technologies and tools I work with regularly
         </motion.p>
@@ -53,9 +53,9 @@ export default function ProgrammingPage() {
         <div className={styles.divider}></div>
 
         <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.25 }}
         >
           <i className="fas fa-code-branch" style={{ marginRight: '10px' }}></i>
           Open-source Contributions
@@ -64,7 +64,7 @@ export default function ProgrammingPage() {
           className={styles.sectionDesc}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.45 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
         >
           Projects I've contributed to on GitHub
         </motion.p>
@@ -72,7 +72,7 @@ export default function ProgrammingPage() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.35 }}
         >
           {contributionsData.map((contribution) => (
             <ContributionCard
@@ -86,7 +86,7 @@ export default function ProgrammingPage() {
           className={styles.calendarWrapper}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
         >
           <GitHubCalendar
             username="itsjrsa"

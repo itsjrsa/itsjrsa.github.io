@@ -5,7 +5,7 @@
 .cursor {
   opacity: 0;
   transition: opacity 0.1s;
-  color: #555;
+  color: var(--color-text-muted);
   font-weight: 300;
 }
 

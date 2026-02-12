@@ -172,13 +172,15 @@ export default function AskMe() {
               className={styles.input}
               disabled={loading}
               maxLength={300}
+              aria-label="Ask a question"
             />
             {question.trim() && !loading && (
               <button
                 type="submit"
                 className={styles.submitBtn}
+                aria-label="Submit question"
               >
-                ↵
+                <span aria-hidden="true">↵</span>
               </button>
             )}
           </form>

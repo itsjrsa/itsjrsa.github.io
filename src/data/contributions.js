@@ -15,8 +15,8 @@ export const contributionsData = [
       {
         name: 'Predico - Collaborative Forecasting',
         description: 'Core developer.',
-        logo_white: '/images/predico_color.png',
-        logo_dark: '/images/predico_white.png',
+        logo_white: '/images/predico_color.webp',
+        logo_dark: '/images/predico_white.webp',
         link: 'https://github.com/INESCTEC/predico-collabforecast'
       },
       {

@@ -12,9 +12,12 @@ export default function ProfileCard() {
       transition={{ duration: 0.4 }}
     >
       <img
-        src="/images/portrait-jrsa.png"
+        src="/images/portrait-jrsa.webp"
         alt="Ricardo Andrade"
         className={styles.photo}
+        width="140"
+        height="140"
+        loading="lazy"
       />
       <div className={styles.info}>
         <h1>Ricardo Andrade</h1>

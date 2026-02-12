@@ -34,9 +34,9 @@ export default function ResearchPage() {
       <div className={styles.content}>
         <ReturnButton />
         <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
         >
           <i className="fas fa-microscope" style={{ marginRight: '10px' }}></i>
           Research

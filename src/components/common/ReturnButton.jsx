@@ -10,8 +10,8 @@ export default function ReturnButton() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <Link to="/">
-        <span className={styles.arrow}>←</span> Back
+      <Link to="/" aria-label="Back to home">
+        <span className={styles.arrow} aria-hidden="true">←</span> Back
       </Link>
     </motion.div>
   )

@@ -8,7 +8,7 @@ export default function SkillsSummary() {
       className={styles.container}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 0.2 }}
+      transition={{ duration: 0.3, delay: 0.15 }}
     >
       {skillsData.map((group, index) => (
         <div key={index} className={styles.group}>

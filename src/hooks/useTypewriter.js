@@ -7,26 +7,27 @@ export function useTypewriter(text, speed = 80, delay = 500) {
 
   useEffect(() => {
     let index = 0
-    let timeoutId
+    let timer = null
 
     // Initial delay before typing starts
     const startTimeout = setTimeout(() => {
-      const timer = setInterval(() => {
+      timer = setInterval(() => {
         if (index < text.length) {
           setDisplayText(text.slice(0, index + 1))
           index++
         } else {
           setIsComplete(true)
           clearInterval(timer)
+          timer = null
         }
       }, speed)
-
-      return () => clearInterval(timer)
     }, delay)
 
     return () => {
       clearTimeout(startTimeout)
-      clearTimeout(timeoutId)
+      if (timer) {
+        clearInterval(timer)
+      }
     }
   }, [text, speed, delay])
 

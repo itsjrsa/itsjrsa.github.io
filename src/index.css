@@ -2,6 +2,7 @@
   /* Colors - Light mode */
   --color-bg: #ffffff;
   --color-bg-card: #ffffff;
+  --color-bg-secondary: #f8f8f8;
   --color-text: #000000;
   --color-text-muted: #555555;
   --color-text-light: #888888;
@@ -12,10 +13,13 @@
   --color-border-hover: #dddddd;
   --color-tag-bg: #f5f5f5;
   --color-tag-border: #e8e8e8;
+  --color-error: #e74c3c;
+  --color-category-journal: #2563eb;
+  --color-category-conference: #059669;
+  --color-divider: #cccccc;
 
   /* Typography */
   --font-primary: 'Arial', sans-serif;
-  --font-timeline: 'Poppins', sans-serif;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -25,6 +29,7 @@
 [data-theme="dark"] {
   --color-bg: #1e1e1e;
   --color-bg-card: #262626;
+  --color-bg-secondary: #2a2a2a;
   --color-text: #e0e0e0;
   --color-text-muted: #a0a0a0;
   --color-text-light: #707070;
@@ -32,6 +37,10 @@
   --color-border-hover: #3a3a3a;
   --color-tag-bg: #2a2a2a;
   --color-tag-border: #3a3a3a;
+  --color-error: #e74c3c;
+  --color-category-journal: #3b82f6;
+  --color-category-conference: #10b981;
+  --color-divider: #444444;
 }
 
 * {

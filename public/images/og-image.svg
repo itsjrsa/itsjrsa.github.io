@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Accent line -->
+  <rect x="0" y="0" width="1200" height="4" fill="#3498db"/>
+  
+  <!-- Photo circle placeholder -->
+  <circle cx="280" cy="315" r="140" fill="#0f3460" stroke="#3498db" stroke-width="4"/>
+  <text x="280" y="330" font-family="Arial, sans-serif" font-size="80" fill="#3498db" text-anchor="middle">RA</text>
+  
+  <!-- Name -->
+  <text x="480" y="270" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#ffffff">Ricardo Andrade</text>
+  
+  <!-- Title -->
+  <text x="480" y="340" font-family="Arial, sans-serif" font-size="36" fill="#a0a0a0">R&D Engineer</text>
+  
+  <!-- Subtitle -->
+  <text x="480" y="380" font-family="Arial, sans-serif" font-size="28" fill="#707070">AI • Energy Systems • Porto</text>
+  
+  <!-- Divider -->
+  <line x1="480" y1="420" x2="900" y2="420" stroke="#3498db" stroke-width="2"/>
+  
+  <!-- Website -->
+  <text x="480" y="470" font-family="Arial, sans-serif" font-size="24" fill="#3498db">www.itsjrsa.com</text>
+  
+  <!-- INESC TEC -->
+  <text x="480" y="510" font-family="Arial, sans-serif" font-size="20" fill="#707070">INESC TEC • Portugal</text>
+</svg>

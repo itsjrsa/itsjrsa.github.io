@@ -1,0 +1,21 @@
+{
+  "name": "Ricardo Andrade - Portfolio",
+  "short_name": "Ricardo Andrade",
+  "description": "R&D Engineer at INESC TEC - AI, energy systems, renewable energy forecasting",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3498db",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

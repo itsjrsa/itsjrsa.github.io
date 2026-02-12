@@ -41,8 +41,8 @@
 }
 
 .trigger:hover {
-  background: #555555;
-  color: #ffffff;
+  background: var(--color-text-muted);
+  color: var(--color-bg);
 }
 
 .trigger:hover::before {
@@ -211,7 +211,7 @@
 
 .error {
   padding: 8px 14px;
-  color: #e74c3c;
+  color: var(--color-error);
   font-size: 12px;
   max-width: 300px;
   text-align: center;

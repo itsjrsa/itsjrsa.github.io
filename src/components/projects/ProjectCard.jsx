@@ -73,7 +73,7 @@ export default function ProjectCard({ project, isExpanded, onToggle }) {
               </div>
             )}
 
-            {project.link && (
+            {project.link && project.link.trim() !== '' && (
               <a
                 href={project.link}
                 target="_blank"

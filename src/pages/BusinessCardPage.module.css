@@ -37,7 +37,7 @@
   margin: 0 0 8px 0;
   font-size: 16px;
   font-weight: 600;
-  color: #0092bc;
+  color: var(--color-accent-blue);
 }
 
 .name {

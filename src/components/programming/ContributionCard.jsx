@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import styles from './ContributionCard.module.css'
 
 export default function ContributionCard({ contribution }) {
@@ -22,12 +21,7 @@ export default function ContributionCard({ contribution }) {
   }, [])
 
   return (
-    <motion.div
-      className={styles.card}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-    >
+    <div className={styles.card}>
       <a
         href={contribution.orgLink}
         target="_blank"
@@ -39,6 +33,9 @@ export default function ContributionCard({ contribution }) {
             src={contribution.orgLogo}
             alt={contribution.organization}
             className={styles.orgLogo}
+            loading="lazy"
+            width="40"
+            height="40"
           />
         )}
         <h3 className={styles.orgName}>{contribution.organization}</h3>
@@ -60,6 +57,9 @@ export default function ContributionCard({ contribution }) {
                   src={logo}
                   alt={project.name}
                   className={styles.projectLogo}
+                  loading="lazy"
+                  width="50"
+                  height="30"
                 />
               ) : (
                 <span className={styles.fallbackIcon}>
@@ -77,6 +77,6 @@ export default function ContributionCard({ contribution }) {
           )
         })}
       </div>
-    </motion.div>
+    </div>
   )
 }

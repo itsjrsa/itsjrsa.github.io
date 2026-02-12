@@ -12,9 +12,12 @@ export default function BusinessCardPage() {
     >
       <div className={styles.card}>
         <img
-          src="/images/portrait-jrsa.png"
+          src="/images/portrait-jrsa.webp"
           alt="Portrait of Ricardo Andrade"
           className={styles.photo}
+          width="120"
+          height="120"
+          loading="lazy"
         />
         <div className={styles.content}>
           <h2 className={styles.company}>INESC TEC</h2>

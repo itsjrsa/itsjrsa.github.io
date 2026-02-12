@@ -16,7 +16,8 @@ export default function ThemeToggle() {
     <button
       className={styles.toggle}
       onClick={() => setIsDark(!isDark)}
-      aria-label="Toggle dark mode"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-pressed={isDark}
       data-hint={isDark ? 'lights on?' : 'lights off?'}
     >
       {isDark ? '☀' : '☾'}

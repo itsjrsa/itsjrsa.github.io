@@ -5,6 +5,7 @@ import ExperiencePage from './pages/ExperiencePage'
 import ProgrammingPage from './pages/ProgrammingPage'
 import ResearchPage from './pages/ResearchPage'
 import BusinessCardPage from './pages/BusinessCardPage'
+import NotFoundPage from './pages/NotFoundPage'
 import ThemeToggle from './components/common/ThemeToggle'
 import AskMe from './components/common/AskMe'
 import styles from './App.module.css'
@@ -23,6 +24,7 @@ function App() {
           <Route path="/publications" element={<Navigate to="/research" replace />} />
           <Route path="/projects" element={<Navigate to="/research" replace />} />
           <Route path="/businesscard" element={<BusinessCardPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AnimatePresence>
       <div className={`${styles.bottomControls} ${location.pathname !== '/' ? styles.compact : ''}`}>

@@ -69,13 +69,3 @@ export const techStackData = [
     ]
   }
 ]
-
-export const projectsData = [
-  {
-    id: 1,
-    title: 'INESC TEC - Open Source Software',
-    description: 'Main developer and contributor to projects in the Energy Sector',
-    image: '/images/inesctec.png',
-    link: 'https://github.com/orgs/INESCTEC/'
-  }
-]

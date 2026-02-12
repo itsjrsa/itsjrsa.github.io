@@ -10,47 +10,18 @@ const sizeClassMap = {
   fullWidth: styles.cardFullWidth
 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1
-    }
-  }
-}
-
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-    scale: 0.95
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.4,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
-}
-
 export default function TechStack() {
   return (
     <motion.div
       className={styles.bentoGrid}
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
     >
       {techStackData.map((category) => (
-        <motion.div
+        <div
           key={category.id}
           className={`${styles.bentoCard} ${sizeClassMap[category.gridSize] || styles.cardSmall}`}
-          variants={cardVariants}
         >
           <div
             className={styles.accentBar}
@@ -77,7 +48,7 @@ export default function TechStack() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       ))}
     </motion.div>
   )

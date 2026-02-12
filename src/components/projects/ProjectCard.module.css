@@ -52,11 +52,11 @@
 }
 
 .journal {
-  color: #2563eb;
+  color: var(--color-category-journal);
 }
 
 .conference {
-  color: #059669;
+  color: var(--color-category-conference);
 }
 
 /* Year */
@@ -115,7 +115,7 @@
 
 /* Citation block */
 .citationBlock {
-  background-color: var(--color-bg-secondary, rgba(128, 128, 128, 0.1));
+  background-color: var(--color-bg-secondary);
   padding: 12px;
   margin-bottom: 16px;
   border-left: 3px solid var(--color-border);
