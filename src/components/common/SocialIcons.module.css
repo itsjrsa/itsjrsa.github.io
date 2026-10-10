@@ -1,9 +1,11 @@
 .socialIcons {
-  margin-top: 12px;
+  margin-top: 8px;
+  /* Compensate for the first glyph being centered in its link target. */
+  margin-left: -2px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 6px;
-  margin-left: -3px;
 }
 
 .socialIcon {
@@ -33,7 +35,7 @@
   letter-spacing: 0.02em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait), (max-width: 479px) {
   .socialIcons {
     justify-content: center;
     margin-left: 0;

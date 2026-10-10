@@ -1,20 +1,8 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import styles from './AskMe.module.css'
 
 const API_URL = 'https://askme-api.itsjrsa.workers.dev'
-
-const EXAMPLE_QUESTIONS = [
-  "What's your tech stack?",
-  "Tell me about your research",
-  "What projects have you worked on?",
-  "Where do you work?",
-  "What's your background?",
-  "What databases do you use?",
-  "Have you published any papers?",
-  "What programming languages do you know?",
-  "What tools do you use daily?",
-  "How can I contact you?"
-]
+const PLACEHOLDER = 'Ask a question...'
 
 export default function AskMe() {
   const [isWriting, setIsWriting] = useState(false)
@@ -22,31 +10,29 @@ export default function AskMe() {
   const [answer, setAnswer] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [exampleIndex, setExampleIndex] = useState(0)
   const inputRef = useRef(null)
+  const measureRef = useRef(null)
+  const triggerRef = useRef(null)
   const containerRef = useRef(null)
+  const requestRef = useRef(null)
 
-  useEffect(() => {
-    if (isWriting && inputRef.current) {
-      inputRef.current.focus()
+  useLayoutEffect(() => {
+    if (inputRef.current && measureRef.current) {
+      inputRef.current.style.width = `${measureRef.current.getBoundingClientRect().width + 3}px`
     }
-  }, [isWriting])
+  }, [question, isWriting, answer])
 
   useEffect(() => {
-    if (!isWriting || answer || loading) return
-
-    const interval = setInterval(() => {
-      setExampleIndex((i) => (i + 1) % EXAMPLE_QUESTIONS.length)
-    }, 5000)
-
-    return () => clearInterval(interval)
+    if (isWriting && !answer && !loading) inputRef.current?.focus()
   }, [isWriting, answer, loading])
+
+  useEffect(() => () => requestRef.current?.abort(), [])
 
   useEffect(() => {
     if (!isWriting) return
 
-    const handleClickOutside = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
         handleClose()
       }
     }
@@ -55,10 +41,22 @@ export default function AskMe() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [isWriting])
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleClose = () => {
+    requestRef.current?.abort()
+    requestRef.current = null
+    setLoading(false)
+    setIsWriting(false)
+    setQuestion('')
+    setAnswer('')
+    setError('')
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     if (!question.trim() || loading) return
 
+    const request = new AbortController()
+    requestRef.current = request
     setLoading(true)
     setError('')
     setAnswer('')
@@ -68,27 +66,21 @@ export default function AskMe() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: question.trim() }),
+        signal: request.signal,
       })
-
       const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to get response')
+      if (!response.ok) throw new Error('Failed to get response')
+      if (!request.signal.aborted) setAnswer(data.answer)
+    } catch {
+      if (!request.signal.aborted) {
+        setError('Unable to answer right now. Please try again later.')
       }
-
-      setAnswer(data.answer)
-    } catch (err) {
-      setError('Unable to answer right now. Please try again later.')
     } finally {
-      setLoading(false)
+      if (requestRef.current === request) {
+        requestRef.current = null
+        setLoading(false)
+      }
     }
-  }
-
-  const handleClose = () => {
-    setIsWriting(false)
-    setQuestion('')
-    setAnswer('')
-    setError('')
   }
 
   const handleReset = () => {
@@ -97,105 +89,67 @@ export default function AskMe() {
     setError('')
   }
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      handleClose()
-    }
-  }
-
-  const handleExampleClick = async (q) => {
-    if (loading) return
-    setQuestion(q)
-    setLoading(true)
-    setError('')
-    setAnswer('')
-
-    try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to get response')
-      }
-
-      setAnswer(data.answer)
-    } catch (err) {
-      setError('Unable to answer right now. Please try again later.')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  if (!isWriting) {
-    return (
+  return (
+    <div
+      className={styles.control}
+      ref={containerRef}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape' && isWriting) {
+          event.stopPropagation()
+          handleClose()
+          triggerRef.current?.focus()
+        }
+      }}
+    >
       <button
+        ref={triggerRef}
+        type="button"
         className={styles.trigger}
-        onClick={() => setIsWriting(true)}
+        onClick={() => isWriting ? handleClose() : setIsWriting(true)}
         aria-label="Ask me anything"
+        aria-expanded={isWriting}
+        aria-controls={isWriting ? 'ask-me-input' : undefined}
         data-hint="ask me anything"
       >
         <span aria-hidden="true">?</span>
       </button>
-    )
-  }
 
-  return (
-    <div className={`${styles.container} ${styles.withCard}`} ref={containerRef}>
-      {!answer && (
-        <>
-          {!loading && (
-            <button
-              className={styles.exampleBtn}
-              onClick={() => handleExampleClick(EXAMPLE_QUESTIONS[exampleIndex])}
-            >
-              {EXAMPLE_QUESTIONS[exampleIndex]}
-            </button>
+      {isWriting && (
+        <div id="ask-me-input" className={styles.container} role="region" aria-label="AI assistant">
+          {!answer && (
+            <form onSubmit={handleSubmit} className={styles.form} aria-busy={loading}>
+              <div className={styles.entry}>
+                <span className={styles.measurement} aria-hidden="true">
+                  <span ref={measureRef} className={styles.measure}>{question || PLACEHOLDER}</span>
+                </span>
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={question}
+                  onChange={(event) => setQuestion(event.target.value)}
+                  placeholder={PLACEHOLDER}
+                  className={styles.input}
+                  disabled={loading}
+                  maxLength={300}
+                  aria-label="Ask a question"
+                />
+                {question.trim() && !loading && (
+                  <button type="submit" className={styles.submitBtn} aria-label="Submit question">
+                    <span aria-hidden="true">↵</span>
+                  </button>
+                )}
+              </div>
+            </form>
           )}
-
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <input
-              ref={inputRef}
-              type="text"
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder={loading ? 'thinking...' : 'type your question...'}
-              className={styles.input}
-              disabled={loading}
-              maxLength={300}
-              aria-label="Ask a question"
-            />
-            {question.trim() && !loading && (
-              <button
-                type="submit"
-                className={styles.submitBtn}
-                aria-label="Submit question"
-              >
-                <span aria-hidden="true">↵</span>
-              </button>
-            )}
-          </form>
-
-          {!loading && (
-            <span className={styles.disclaimer}>powered by AI</span>
+          {loading && <span className={styles.status} role="status">Thinking…</span>}
+          {error && <p className={styles.error} role="alert">{error}</p>}
+          {answer && (
+            <div className={styles.answer}>
+              <p role="status">{answer}</p>
+              <span className={styles.disclaimer}>powered by AI</span>
+              <button type="button" className={styles.resetBtn} onClick={handleReset}>ask another</button>
+            </div>
           )}
-        </>
-      )}
-
-      {error && <div className={styles.error}>{error}</div>}
-
-      {answer && (
-        <div className={styles.answer}>
-          <p>{answer}</p>
-          <span className={styles.disclaimer}>powered by AI</span>
-          <button className={styles.resetBtn} onClick={handleReset}>
-            ask another
-          </button>
         </div>
       )}
     </div>

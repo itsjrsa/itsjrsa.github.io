@@ -37,7 +37,17 @@ export default function ResearchPage() {
         <section aria-labelledby="publications-heading">
           <div className={styles.sectionHeader}>
             <h2 id="publications-heading">Selected publications</h2>
-            <span className={styles.count}>{researchData.length} publications</span>
+            <div className={styles.publicationLinks}>
+              <span className={styles.count}>{researchData.length} publications</span>
+              <a
+                className={styles.scholarLink}
+                href="https://scholar.google.com/citations?user=Q1Kye1AAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Scholar <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
           <LayoutGroup>
             <motion.div className={styles.grid} ref={containerRef} layout={!reduceMotion}>

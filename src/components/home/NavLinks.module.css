@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  margin-left: 32px;
+  justify-self: start;
 }
 
 .navLink {
@@ -44,9 +44,9 @@
   outline-offset: 5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait), (max-width: 479px) {
   .options {
-    margin-top: 24px;
+    margin-top: 0;
     margin-left: 0;
     border-top: 1px solid var(--color-divider);
     padding-top: 16px;
@@ -62,5 +62,12 @@
 @media (prefers-reduced-motion: reduce) {
   .navLink a::after {
     transition: none;
+  }
+}
+
+@media (max-width: 479px) and (max-height: 700px) {
+  .options {
+    margin-top: 0;
+    padding-top: 12px;
   }
 }

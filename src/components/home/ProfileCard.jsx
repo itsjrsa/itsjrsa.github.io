@@ -1,16 +1,10 @@
-import { motion } from 'framer-motion'
 import SocialIcons from '../common/SocialIcons'
 import TypingEffect from './TypingEffect'
 import styles from './ProfileCard.module.css'
 
 export default function ProfileCard() {
   return (
-    <motion.div
-      className={styles.profile}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
-    >
+    <>
       <div className={styles.portrait}>
         <img
           src="/images/portrait-jrsa-light.webp"
@@ -34,6 +28,6 @@ export default function ProfileCard() {
         </p>
         <SocialIcons />
       </div>
-    </motion.div>
+    </>
   )
 }

@@ -38,10 +38,32 @@
 
 .sectionHeader {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: 20px;
   padding-bottom: 18px;
+}
+
+.publicationLinks {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.scholarLink {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-decoration-color: var(--color-divider);
+  text-underline-offset: 4px;
+}
+
+.scholarLink:hover {
+  color: var(--color-text);
+  text-decoration-color: currentColor;
 }
 
 .sectionHeader h2 {
