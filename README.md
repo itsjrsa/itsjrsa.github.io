@@ -8,8 +8,9 @@ Personal portfolio website built with React and Vite, deployed on GitHub Pages.
 
 - Light/dark theme with persistent preference
 - AI-powered "Ask Me Anything" chatbot
-- GitHub contributions calendar
-- Skills & expertise section
+- Project showcase with software descriptions and source links
+- Monochrome GitHub contribution calendar
+- Software development experience
 - Responsive design
 
 ## Tech Stack

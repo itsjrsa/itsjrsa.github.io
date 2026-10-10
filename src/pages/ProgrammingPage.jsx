@@ -1,100 +1,52 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { GitHubCalendar } from 'react-github-calendar'
 import PageTransition from '../components/Layout/PageTransition'
 import ReturnButton from '../components/common/ReturnButton'
-import TechStack from '../components/programming/TechStack'
-import ContributionCard from '../components/programming/ContributionCard'
-import { contributionsData } from '../data/contributions'
+import ProjectCard from '../components/programming/ProjectCard'
+import ContributionCalendar from '../components/programming/ContributionCalendar'
+import { projectsData } from '../data/projects'
 import styles from './ProgrammingPage.module.css'
 
 export default function ProgrammingPage() {
-  const [colorScheme, setColorScheme] = useState(
-    document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
-  )
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const theme = document.documentElement.getAttribute('data-theme')
-      setColorScheme(theme === 'dark' ? 'dark' : 'light')
-    })
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme']
-    })
-
-    return () => observer.disconnect()
-  }, [])
   return (
     <PageTransition className={styles.container}>
-      <div className={styles.content}>
+      <main className={styles.content}>
         <ReturnButton />
 
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
-          <i className="fas fa-laptop" style={{ marginRight: '10px' }}></i>
-          Tech Stack
-        </motion.h1>
-        <motion.p
-          className={styles.sectionDesc}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.15 }}
-        >
-          Technologies and tools I work with regularly
-        </motion.p>
+        <header className={styles.intro}>
+          <p className={styles.eyebrow}>Programming</p>
+          <h1>Things I’ve built.</h1>
+          <p className={styles.description}>
+            Forecasting systems, tools for building with agents, and smaller
+            experiments. Selected software from my work and independent projects.
+          </p>
+        </header>
 
-        <TechStack />
+        <ContributionCalendar />
 
-        <div className={styles.divider}></div>
+        <section aria-labelledby="projects-heading">
+          <div className={styles.sectionHeader}>
+            <h2 id="projects-heading">Selected projects</h2>
+            <span className={styles.projectCount}>
+              {String(projectsData.length).padStart(2, '0')} projects
+            </span>
+          </div>
+          <div>
+            {projectsData.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
+        </section>
 
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.25 }}
-        >
-          <i className="fas fa-code-branch" style={{ marginRight: '10px' }}></i>
-          Open-source Contributions
-        </motion.h1>
-        <motion.p
-          className={styles.sectionDesc}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.3 }}
-        >
-          Projects I've contributed to on GitHub
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.35 }}
-        >
-          {contributionsData.map((contribution) => (
-            <ContributionCard
-              key={contribution.id}
-              contribution={contribution}
-            />
-          ))}
-        </motion.div>
-
-        <motion.div
-          className={styles.calendarWrapper}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.4 }}
-        >
-          <GitHubCalendar
-            username="itsjrsa"
-            colorScheme={colorScheme}
-            fontSize={12}
-          />
-        </motion.div>
-      </div>
+        <section className={styles.approach} aria-labelledby="approach-heading">
+          <h2 id="approach-heading">Software development</h2>
+          <div>
+            <p>
+              10+ years of experience designing, developing, and maintaining
+              software, from forecasting platforms and data services to
+              web applications and developer tools.
+            </p>
+          </div>
+        </section>
+      </main>
     </PageTransition>
   )
 }

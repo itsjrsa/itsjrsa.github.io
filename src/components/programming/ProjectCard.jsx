@@ -1,23 +1,29 @@
-import { motion } from 'framer-motion'
 import styles from './ProjectCard.module.css'
 
-export default function ProjectCard({ title, description, image, link }) {
+export default function ProjectCard({ project, index }) {
   return (
-    <motion.a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.card}
-      whileHover={{ y: -4, boxShadow: '4px 4px 12px #666' }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-    >
-      <img src={image} alt={title} className={styles.image} />
-      <div className={styles.content}>
-        <h2>{title}</h2>
-        <p>{description}</p>
+    <article className={styles.project} aria-labelledby={`${project.id}-title`}>
+      <div className={styles.identity}>
+        <p className={styles.category}>
+          <span className={styles.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          {project.category}
+        </p>
+        <h3 id={`${project.id}-title`}>{project.title}</h3>
+        <p className={styles.role}>{project.role}</p>
       </div>
-    </motion.a>
+      <div className={styles.details}>
+        <p className={styles.summary}>{project.summary}</p>
+        <p className={styles.description}>{project.description}</p>
+        <ul className={styles.links} aria-label={`${project.title} links`}>
+          {project.links.map((link) => (
+            <li key={link.url}>
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                {link.label}<span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
   )
 }
