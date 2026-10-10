@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 import styles from './AskMe.module.css'
 
 const API_URL = 'https://askme-api.itsjrsa.workers.dev'
@@ -26,8 +25,6 @@ export default function AskMe() {
   const [exampleIndex, setExampleIndex] = useState(0)
   const inputRef = useRef(null)
   const containerRef = useRef(null)
-  const location = useLocation()
-  const isHomePage = location.pathname === '/'
 
   useEffect(() => {
     if (isWriting && inputRef.current) {
@@ -137,19 +134,18 @@ export default function AskMe() {
   if (!isWriting) {
     return (
       <button
-        className={`${styles.trigger} ${isHomePage ? styles.triggerHome : styles.triggerCompact}`}
+        className={styles.trigger}
         onClick={() => setIsWriting(true)}
         aria-label="Ask me anything"
-        data-hint="ask me"
+        data-hint="ask me anything"
       >
-        <span className={styles.icon}>?</span>
-        <span className={styles.triggerText}>ask me anything</span>
+        <span aria-hidden="true">?</span>
       </button>
     )
   }
 
   return (
-    <div className={`${styles.container} ${!isHomePage ? styles.withCard : ''}`} ref={containerRef}>
+    <div className={`${styles.container} ${styles.withCard}`} ref={containerRef}>
       {!answer && (
         <>
           {!loading && (

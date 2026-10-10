@@ -11,14 +11,22 @@ export default function ProfileCard() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
     >
-      <img
-        src="/images/portrait-jrsa.webp"
-        alt="Ricardo Andrade"
-        className={styles.photo}
-        width="140"
-        height="140"
-        loading="lazy"
-      />
+      <div className={styles.portrait}>
+        <img
+          src="/images/portrait-jrsa-light.webp"
+          alt="Ricardo Andrade"
+          className={`${styles.photo} ${styles.lightPhoto}`}
+          width="150"
+          height="150"
+        />
+        <img
+          src="/images/portrait-jrsa-dark.webp"
+          alt="Ricardo Andrade"
+          className={`${styles.photo} ${styles.darkPhoto}`}
+          width="150"
+          height="150"
+        />
+      </div>
       <div className={styles.info}>
         <h1>Ricardo Andrade</h1>
         <p>

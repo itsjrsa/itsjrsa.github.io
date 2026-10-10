@@ -1,10 +1,10 @@
 import styles from './SocialIcons.module.css'
 
 const socials = [
-  { href: 'https://github.com/itsjrsa', icon: 'fab fa-github', label: 'GitHub' },
-  { href: 'https://linkedin.com/in/itsjrsa', icon: 'fab fa-linkedin', label: 'LinkedIn' },
-  { href: 'https://orcid.org/0000-0001-8170-8235', icon: 'fab fa-orcid', label: 'ORCID' },
-  { href: 'mailto:jrsa2012@gmail.com', icon: 'fa fa-envelope-square', label: 'Email' },
+  { href: 'https://github.com/itsjrsa', label: 'GitHub', icon: 'fab fa-github' },
+  { href: 'https://linkedin.com/in/itsjrsa', label: 'LinkedIn', icon: 'fab fa-linkedin-in' },
+  { href: 'https://orcid.org/0000-0001-8170-8235', label: 'ORCID', icon: 'fab fa-orcid' },
+  { href: 'mailto:jrsa2012@gmail.com', label: 'Email', icon: 'far fa-envelope' },
   { href: 'https://raw.githubusercontent.com/itsjrsa/cv/master/cv.pdf', label: 'CV', isCV: true }
 ]
 
@@ -19,12 +19,13 @@ export default function SocialIcons() {
           target={social.href.startsWith('mailto') ? undefined : '_blank'}
           rel="noopener noreferrer"
           aria-label={social.label}
+          title={social.isCV ? 'Curriculum vitae' : social.label}
           download={social.isCV ? true : undefined}
         >
           {social.isCV ? (
-            <span className={styles.cvText}>CV</span>
+            <span className={styles.cvText} aria-hidden="true">CV</span>
           ) : (
-            <i className={social.icon}></i>
+            <i className={social.icon} aria-hidden="true" />
           )}
         </a>
       ))}

@@ -27,7 +27,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AnimatePresence>
-      <div className={`${styles.bottomControls} ${location.pathname !== '/' ? styles.compact : ''}`}>
+      <div className={styles.bottomControls}>
         <AskMe />
         <ThemeToggle />
       </div>

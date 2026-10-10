@@ -11,6 +11,7 @@ const links = [
 export default function NavLinks() {
   return (
     <motion.nav
+      aria-label="Main navigation"
       className={styles.options}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

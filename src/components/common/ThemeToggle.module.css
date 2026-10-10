@@ -10,7 +10,8 @@
   color: var(--color-text-muted);
 }
 
-.toggle:hover {
+.toggle:hover,
+.toggle:focus-visible {
   border-color: var(--color-border-hover);
   color: var(--color-text);
 }
@@ -30,6 +31,19 @@
   transition: opacity 0.2s ease;
 }
 
-.toggle:hover::after {
+.toggle:hover::after,
+.toggle:focus-visible::after {
   opacity: 1;
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle,
+  .toggle::after {
+    transition: none;
+  }
 }

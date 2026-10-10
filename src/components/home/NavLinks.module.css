@@ -3,14 +3,14 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  margin-left: 30px;
+  margin-left: 32px;
 }
 
 .navLink {
   cursor: pointer;
   font-size: 16px;
   color: var(--color-text);
-  margin: 6px 0;
+  margin: 0;
   position: relative;
 }
 
@@ -19,33 +19,48 @@
   color: inherit;
   position: relative;
   display: inline-block;
+  padding: 10px 0;
+  line-height: 1.5;
 }
 
 .navLink a::after {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
-  bottom: -2px;
+  height: 1px;
+  bottom: 7px;
   left: 0;
   background-color: var(--color-text);
   transition: width 0.3s ease, background-color 0.3s;
 }
 
-.navLink a:hover::after {
+.navLink a:hover::after,
+.navLink a:focus-visible::after {
   width: 100%;
+}
+
+.navLink a:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 5px;
 }
 
 @media (max-width: 768px) {
   .options {
-    margin-top: 20px;
+    margin-top: 24px;
     margin-left: 0;
-    border-left: 2px solid var(--color-text);
-    padding-left: 15px;
+    border-top: 1px solid var(--color-divider);
+    padding-top: 16px;
+    align-items: center;
+    width: 100%;
   }
 
   .navLink {
-    font-size: 18px;
-    margin: 8px 0;
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink a::after {
+    transition: none;
   }
 }

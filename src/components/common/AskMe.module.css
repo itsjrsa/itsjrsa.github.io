@@ -1,57 +1,20 @@
 .trigger {
   position: relative;
   background: var(--color-bg);
-  border: none;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 6px 14px;
   color: var(--color-text-muted);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.trigger::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 21px;
-  padding: 2px;
-  background: conic-gradient(
-    from var(--angle, 0deg),
-    transparent 0%,
-    rgba(128, 128, 128, 0.5) 8%,
-    transparent 16%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: spin 1.5s linear infinite;
-}
-
-@keyframes spin {
-  to { --angle: 360deg; }
-}
-
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-
-.trigger:hover {
-  background: var(--color-text-muted);
-  color: var(--color-bg);
-}
-
-.trigger:hover::before {
-  background: conic-gradient(
-    from var(--angle, 0deg),
-    transparent 0%,
-    var(--color-text) 10%,
-    transparent 20%
-  );
+.trigger:hover,
+.trigger:focus-visible {
+  border-color: var(--color-border-hover);
+  color: var(--color-text);
 }
 
 .trigger::after {
@@ -62,6 +25,7 @@
   transform: translateY(-50%);
   margin-right: 10px;
   font-size: 12px;
+  font-weight: 400;
   color: var(--color-text-muted);
   white-space: nowrap;
   opacity: 0;
@@ -69,53 +33,21 @@
   transition: opacity 0.2s ease;
 }
 
-.trigger:hover::after {
+.trigger:hover::after,
+.trigger:focus-visible::after {
   opacity: 1;
 }
 
-/* Compact trigger for non-home pages */
-.triggerCompact {
-  padding: 8px 14px;
-  overflow: hidden;
-  transition: color 0.2s ease;
-  white-space: nowrap;
+.trigger:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
 }
 
-.triggerCompact:hover {
-  padding: 8px 16px;
-}
-
-.icon {
-  font-weight: 700;
-}
-
-.triggerText {
-  display: inline-block;
-  max-width: 0;
-  overflow: hidden;
-  vertical-align: middle;
-  transition: max-width 0.3s ease, margin 0.3s ease;
-}
-
-.triggerCompact:hover .icon {
-  display: none;
-}
-
-.triggerCompact:hover .triggerText {
-  max-width: 150px;
-}
-
-/* Homepage trigger - full text on desktop, compact on mobile */
-.triggerHome .icon {
-  display: none;
-}
-
-.triggerHome .triggerText {
-  max-width: 150px;
-}
-
-.triggerHome::after {
-  display: none;
+@media (prefers-reduced-motion: reduce) {
+  .trigger,
+  .trigger::after {
+    transition: none;
+  }
 }
 
 .container {
@@ -260,18 +192,6 @@
     text-align: center;
   }
 
-
-  .trigger .triggerText {
-    display: none;
-  }
-
-  .trigger .icon {
-    display: inline;
-  }
-
-  .triggerHome::after {
-    display: block;
-  }
 
   .container {
     background: rgba(255, 255, 255, 0.25);
