@@ -5,6 +5,8 @@
   line-height: 1.6;
 }
 
+.calendar { min-height: 160px; }
+
 .header {
   display: flex;
   align-items: baseline;

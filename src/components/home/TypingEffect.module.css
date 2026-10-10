@@ -1,6 +1,10 @@
 .typing {
-  display: inline;
+  display: inline-block;
+  position: relative;
 }
+
+.measure { visibility: hidden; }
+.animated { position: absolute; inset: 0; white-space: nowrap; }
 
 .cursor {
   opacity: 0;

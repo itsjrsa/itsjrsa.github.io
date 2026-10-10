@@ -13,7 +13,7 @@ export default function NavLinks() {
     <motion.nav
       aria-label="Main navigation"
       className={styles.options}
-      initial={{ opacity: 0 }}
+      initial={false}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4, delay: 0.2 }}
     >

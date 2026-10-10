@@ -6,10 +6,10 @@ import styles from './HomePage.module.css'
 export default function HomePage() {
   return (
     <PageTransition className={styles.container}>
-      <div className={styles.content}>
+      <main id="main-content" tabIndex={-1} className={styles.content}>
         <ProfileCard />
         <NavLinks />
-      </div>
+      </main>
     </PageTransition>
   )
 }

@@ -23,16 +23,30 @@ Personal portfolio website built with React and Vite, deployed on GitHub Pages.
 
 ## Development
 
+Use Node.js 22 or newer (also required by the Worker's Wrangler tooling).
+
 ```bash
 npm install       # Install dependencies
 npm run dev       # Start dev server (http://localhost:5173)
 npm run build     # Build for production
+npm run check     # Validate built routes, metadata, and local assets
 npm run preview   # Preview production build
 ```
 
 ## Deployment
 
 Pushes to `master` automatically deploy to GitHub Pages via GitHub Actions.
+
+The build prerenders each route to its own HTML directory, including page-specific
+metadata, and generates `sitemap.xml`, `robots.txt`, legacy redirects, and a real
+404 page. React hydrates those pages for interactive features. Public page URLs
+use a trailing slash; GitHub Pages redirects the slashless version automatically.
+The deployment workflow validates the output before publishing it.
+
+SEO titles and descriptions live in `src/data/seo.js`. To regenerate the touch
+icons, social preview, and optimized portraits, run
+`node scripts/generate-site-assets.mjs`. The favicon keeps the existing code-mark
+identity, with an SVG version and 192/512px app icons.
 
 ## Project Structure
 

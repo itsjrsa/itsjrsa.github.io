@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react'
 
 export function useTypewriter(text, speed = 80, delay = 500) {
-  const [displayText, setDisplayText] = useState('')
+  const [displayText, setDisplayText] = useState(text)
   const [isComplete, setIsComplete] = useState(false)
-  const [showCursor, setShowCursor] = useState(true)
+  const [showCursor, setShowCursor] = useState(false)
 
   useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplayText(text)
+      setIsComplete(true)
+      setShowCursor(false)
+      return
+    }
+    setDisplayText('')
+    setIsComplete(false)
+    setShowCursor(true)
     let index = 0
     let timer = null
 

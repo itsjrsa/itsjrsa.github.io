@@ -8,7 +8,7 @@ import styles from './ProgrammingPage.module.css'
 export default function ProgrammingPage() {
   return (
     <PageTransition className={styles.container}>
-      <main className={styles.content}>
+      <main id="main-content" tabIndex={-1} className={styles.content}>
         <ReturnButton />
 
         <header className={styles.intro}>

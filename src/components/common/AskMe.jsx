@@ -3,6 +3,7 @@ import styles from './AskMe.module.css'
 
 const API_URL = 'https://askme-api.itsjrsa.workers.dev'
 const PLACEHOLDER = 'Ask a question...'
+const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
 
 export default function AskMe() {
   const [isWriting, setIsWriting] = useState(false)
@@ -16,7 +17,7 @@ export default function AskMe() {
   const containerRef = useRef(null)
   const requestRef = useRef(null)
 
-  useLayoutEffect(() => {
+  useBrowserLayoutEffect(() => {
     if (inputRef.current && measureRef.current) {
       inputRef.current.style.width = `${measureRef.current.getBoundingClientRect().width + 3}px`
     }

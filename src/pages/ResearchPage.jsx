@@ -23,7 +23,7 @@ export default function ResearchPage() {
 
   return (
     <PageTransition className={styles.container}>
-      <main className={styles.content}>
+      <main id="main-content" tabIndex={-1} className={styles.content}>
         <ReturnButton />
         <header className={styles.intro}>
           <p className={styles.eyebrow}>Research</p>

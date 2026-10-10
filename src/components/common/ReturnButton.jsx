@@ -6,7 +6,7 @@ export default function ReturnButton() {
   return (
     <motion.div
       className={styles.back}
-      initial={{ opacity: 0 }}
+      initial={false}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >

@@ -9,13 +9,16 @@ import NotFoundPage from './pages/NotFoundPage'
 import ThemeToggle from './components/common/ThemeToggle'
 import AskMe from './components/common/AskMe'
 import styles from './App.module.css'
+import PageMetadata from './components/Layout/PageMetadata'
 
 function App() {
   const location = useLocation()
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <PageMetadata />
+      <AnimatePresence initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} />
           <Route path="/experience" element={<ExperiencePage />} />

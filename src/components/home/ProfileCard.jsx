@@ -7,14 +7,14 @@ export default function ProfileCard() {
     <>
       <div className={styles.portrait}>
         <img
-          src="/images/portrait-jrsa-light.webp"
+          src="/images/portrait-jrsa-light-300.webp"
           alt="Ricardo Andrade"
           className={`${styles.photo} ${styles.lightPhoto}`}
           width="150"
           height="150"
         />
         <img
-          src="/images/portrait-jrsa-dark.webp"
+          src="/images/portrait-jrsa-dark-300.webp"
           alt="Ricardo Andrade"
           className={`${styles.photo} ${styles.darkPhoto}`}
           width="150"

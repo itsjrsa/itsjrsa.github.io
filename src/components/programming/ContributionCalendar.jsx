@@ -1,6 +1,8 @@
-import { cloneElement, useCallback, useEffect, useState } from 'react'
-import { GitHubCalendar } from 'react-github-calendar'
+import { cloneElement, lazy, Suspense, useCallback, useEffect, useState } from 'react'
 import styles from './ContributionCalendar.module.css'
+
+const GitHubCalendar = lazy(() => import('react-github-calendar').then(module => ({ default: module.GitHubCalendar })))
+const loadingCalendar = <p role="status">Loading GitHub activity…</p>
 
 const theme = {
   light: ['#eeeeee', '#c6c6c6', '#939393', '#606060', '#252525'],
@@ -8,12 +10,15 @@ const theme = {
 }
 
 const getColorScheme = () =>
-  document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+  typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
 
 export default function ContributionCalendar() {
-  const [colorScheme, setColorScheme] = useState(getColorScheme)
+  const [colorScheme, setColorScheme] = useState('light')
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+    setColorScheme(getColorScheme())
     const observer = new MutationObserver(() => setColorScheme(getColorScheme()))
     observer.observe(document.documentElement, {
       attributes: true,
@@ -44,7 +49,8 @@ export default function ContributionCalendar() {
           @itsjrsa <span aria-hidden="true">↗</span>
         </a>
       </div>
-      <GitHubCalendar
+      <div className={styles.calendar}>
+      {mounted ? <Suspense fallback={loadingCalendar}><GitHubCalendar
         ref={prepareCalendar}
         username="itsjrsa"
         year="last"
@@ -60,7 +66,8 @@ export default function ContributionCalendar() {
           const label = `${activity.count} ${activity.count === 1 ? 'contribution' : 'contributions'} on ${activity.date}`
           return cloneElement(block, { 'aria-label': label }, <title>{label}</title>)
         }}
-      />
+      /></Suspense> : loadingCalendar}
+      </div>
       <p className={styles.scrollHint}>Scroll to explore the full year <span aria-hidden="true">↔</span></p>
     </section>
   )

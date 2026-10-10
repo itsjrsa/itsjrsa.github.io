@@ -6,8 +6,12 @@ export default function TypingEffect({ text, speed = 80, delay = 800 }) {
 
   return (
     <span className={styles.typing}>
-      {displayText}
-      <span className={`${styles.cursor} ${showCursor ? styles.visible : ''}`}>|</span>
+      <span className="sr-only">{text}</span>
+      <span className={styles.measure} aria-hidden="true">{text}</span>
+      <span className={styles.animated} aria-hidden="true">
+        {displayText}
+        <span className={`${styles.cursor} ${showCursor ? styles.visible : ''}`}>|</span>
+      </span>
     </span>
   )
 }
