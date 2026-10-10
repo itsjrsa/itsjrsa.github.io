@@ -1,30 +1,26 @@
-import { motion } from 'framer-motion'
-import { experienceData } from '../../data/experience'
 import styles from './Timeline.module.css'
 
-export default function Timeline() {
+export default function Timeline({ items }) {
   return (
-    <motion.div
-      className={styles.timeline}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3, delay: 0.3 }}
-    >
-      {experienceData.map((item) => (
-        <div key={item.id} className={styles.card}>
-          <div className={styles.header}>
-            <span className={styles.date}>{item.date}</span>
-            <span className={`${styles.badge} ${styles[item.type]}`}>
-              {item.type === 'work' ? 'Work' : 'Education'}
-            </span>
+    <ol className={styles.timeline}>
+      {items.map((item) => (
+        <li key={item.id} className={styles.entry}>
+          <div className={styles.identity}>
+            <p className={styles.date}>{item.date}</p>
+            <h3 className={styles.role}>{item.role}</h3>
+            <p className={styles.org}>{item.organization}</p>
           </div>
-          <h3 className={styles.role}>{item.role}</h3>
-          <p className={styles.org}>{item.organization}</p>
-          {item.description && (
-            <p className={styles.description}>{item.description}</p>
-          )}
-        </div>
+          <div className={styles.details}>
+            {item.focus && <p className={styles.focus}>{item.focus}</p>}
+            {item.description && <p className={styles.description}>{item.description}</p>}
+            {item.link && (
+              <a className={styles.link} href={item.link.url} target="_blank" rel="noopener noreferrer">
+                {item.link.label} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
+        </li>
       ))}
-    </motion.div>
+    </ol>
   )
 }

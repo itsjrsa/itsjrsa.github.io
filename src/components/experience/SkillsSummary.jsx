@@ -1,25 +1,19 @@
-import { motion } from 'framer-motion'
 import { skillsData } from '../../data/skills'
 import styles from './SkillsSummary.module.css'
 
 export default function SkillsSummary() {
   return (
-    <motion.div
-      className={styles.container}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3, delay: 0.15 }}
-    >
-      {skillsData.map((group, index) => (
-        <div key={index} className={styles.group}>
+    <div>
+      {skillsData.map((group) => (
+        <div key={group.category} className={styles.group}>
           <h3 className={styles.category}>{group.category}</h3>
-          <div className={styles.skills}>
-            {group.skills.map((skill, i) => (
-              <span key={i} className={styles.skill}>{skill}</span>
+          <ul className={styles.skills}>
+            {group.skills.map((skill) => (
+              <li key={skill} className={styles.skill}>{skill}</li>
             ))}
-          </div>
+          </ul>
         </div>
       ))}
-    </motion.div>
+    </div>
   )
 }

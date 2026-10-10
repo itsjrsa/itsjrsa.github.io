@@ -1,48 +1,57 @@
-import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import PageTransition from '../components/Layout/PageTransition'
 import ReturnButton from '../components/common/ReturnButton'
 import SkillsSummary from '../components/experience/SkillsSummary'
 import Timeline from '../components/experience/Timeline'
+import { experienceData } from '../data/experience'
 import styles from './ExperiencePage.module.css'
 
 export default function ExperiencePage() {
   return (
     <PageTransition className={styles.container}>
-      <div className={styles.content}>
+      <main className={styles.content}>
         <ReturnButton />
-        
-        <h1>
-          <i className="fas fa-user-tie" style={{ marginRight: '10px' }}></i>
-          Experience
-        </h1>
-        
-        <motion.h2
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
-          Skills & Expertise
-        </motion.h2>
 
-        <SkillsSummary />
+        <header className={styles.intro}>
+          <p className={styles.eyebrow}>Experience</p>
+          <h1>Research & engineering.</h1>
+          <p className={styles.description}>
+            10+ years working across software development, energy systems, and
+            applied research. Turning forecasting methods and data into software
+            for industry at INESC TEC.
+          </p>
+        </header>
 
-        <motion.div
-          className={styles.divider}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-        />
+        <section className={styles.section} aria-labelledby="work-heading">
+          <div className={styles.sectionHeader}>
+            <h2 id="work-heading">Work</h2>
+            <span className={styles.period}>2016 — Present</span>
+          </div>
+          <Timeline items={experienceData.filter(item => item.type === 'work')} />
+        </section>
 
-        <motion.h2
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.25 }}
-        >
-          Work & Education
-        </motion.h2>
+        <section className={styles.section} aria-labelledby="expertise-heading">
+          <div className={styles.sectionHeader}>
+            <h2 id="expertise-heading">Areas of expertise</h2>
+          </div>
+          <SkillsSummary />
+        </section>
 
-        <Timeline />
-      </div>
+        <section aria-labelledby="education-heading">
+          <div className={styles.sectionHeader}>
+            <h2 id="education-heading">Education</h2>
+          </div>
+          <Timeline items={experienceData.filter(item => item.type === 'education')} />
+        </section>
+
+        <nav className={styles.related} aria-label="Explore my work">
+          <p>Explore my work</p>
+          <div>
+            <Link to="/programming">Software projects <span aria-hidden="true">→</span></Link>
+            <Link to="/research">Research & publications <span aria-hidden="true">→</span></Link>
+          </div>
+        </nav>
+      </main>
     </PageTransition>
   )
 }
