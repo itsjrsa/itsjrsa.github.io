@@ -8,6 +8,26 @@
 
 export const researchData = [
   // ============================================
+  // 2026
+  // ============================================
+  {
+    id: 15,
+    title: "Collaborative Forecasting Platform: Results after one year of operation for wind and solar forecasting in Belgium",
+    authors: "H. Carstens, J.R. Andrade, C.S. Gonçalves, A.F. Garcia, R.J. Bessa, B. Castro Silva",
+    venue: "CIGRE Paris Session 2026",
+    year: 2026,
+    citation: "H. Carstens, J.R. Andrade, C.S. Gonçalves, A.F. Garcia, R.J. Bessa, B. Castro Silva, \"Collaborative Forecasting Platform: Results after one year of operation for wind and solar forecasting in Belgium,\" CIGRE Paris Session 2026, paper D2_10156_2026, 2026.",
+    // Paraphrase of the publisher's public summary; full text requires CIGRE access.
+    abstractLabel: "Summary",
+    abstract: "This paper reports a year of operating a collaborative forecasting platform for Belgian wind and solar generation. Forecast providers compete in shared markets, receive performance-based rewards, and contribute predictions to an ensemble. The approach addresses limitations of bilateral procurement, including cost, transparency, and access for smaller providers. Tests on day-ahead offshore wind and solar forecasts showed improvements over the operational forecasts: 6–8% in point-forecast RMSE and 7–14% in the probabilistic MWI metric. The platform also supports shared funding of forecasting services and markets for data analytics.",
+    image: null,
+    tags: ["collaborative forecasting", "ensemble forecasting", "renewable energy", "forecasting markets"],
+    category: "conference",
+    link: "https://www.e-cigre.org/publications/detail/d2-10156-2026-collaborative-forecasting-platform-results-after-one-year-of-operation-for-wind-and-solar-forecasting-in-belgium.html",
+    size: "medium"
+  },
+
+  // ============================================
   // 2025
   // ============================================
   {

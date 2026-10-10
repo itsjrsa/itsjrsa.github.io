@@ -1,92 +1,95 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import styles from './ProjectCard.module.css'
 
-export default function ProjectCard({ project, isExpanded, onToggle }) {
-  const [copied, setCopied] = useState(false)
-  const sizeClass = styles[project.size] || styles.medium
-  const categoryClass = styles[project.category] || ''
+export default function ProjectCard({ project, isExpanded, onToggle, onClose }) {
+  const [copyStatus, setCopyStatus] = useState('')
+  const resetTimer = useRef(null)
+  const toggleRef = useRef(null)
+  const reduceMotion = useReducedMotion()
+  const detailsId = `publication-${project.id}-details`
 
-  const handleCopyCitation = (e) => {
-    e.stopPropagation()
-    navigator.clipboard.writeText(project.citation)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+  useEffect(() => () => clearTimeout(resetTimer.current), [])
+
+  const handleCopyCitation = async () => {
+    clearTimeout(resetTimer.current)
+    try {
+      await navigator.clipboard.writeText(project.citation)
+      setCopyStatus('Citation copied.')
+    } catch {
+      setCopyStatus('Could not copy. Select the citation below to copy it manually.')
+    }
+    resetTimer.current = setTimeout(() => setCopyStatus(''), 4000)
   }
 
   return (
-    <motion.div
-      layout
-      className={`${styles.card} ${sizeClass} ${isExpanded ? styles.expanded : ''}`}
-      onClick={onToggle}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+    <motion.article
+      layout={!reduceMotion}
+      className={`${styles.card} ${styles[project.size] || styles.medium} ${isExpanded ? styles.expanded : ''}`}
       transition={{ layout: { duration: 0.3 } }}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape' && isExpanded) {
+          onClose()
+          toggleRef.current?.focus()
+        }
+      }}
     >
-      <div className={styles.content}>
-        <motion.div layout="position" className={styles.header}>
-          <span className={`${styles.categoryBadge} ${categoryClass}`}>
-            {project.category}
-          </span>
+      <div className={styles.summary}>
+        <div className={styles.header}>
+          <span className={styles.category}>{project.category}</span>
           <span className={styles.year}>{project.year}</span>
-        </motion.div>
-
-        <motion.h3 layout="position" className={styles.title}>{project.title}</motion.h3>
-
-        <motion.p layout="position" className={styles.venue}>{project.venue}</motion.p>
-
+        </div>
+        <h3 className={styles.title}>
+          <button
+            type="button"
+            ref={toggleRef}
+            className={styles.toggle}
+            aria-expanded={isExpanded}
+            aria-controls={detailsId}
+            onClick={onToggle}
+          >
+            {project.title}
+          </button>
+        </h3>
+        <p className={styles.venue}>{project.venue}</p>
         {project.image && (
-          <div className={styles.imageWrapper}>
-            <img src={project.image} alt={project.title} className={styles.image} />
+          <img src={project.image} alt="" className={styles.image} loading="lazy" />
+        )}
+        <span className={styles.expandHint} aria-hidden="true">
+          {isExpanded ? 'Close details' : `${project.abstractLabel || 'Abstract'} & citation`}
+          <span>{isExpanded ? '−' : '+'}</span>
+        </span>
+      </div>
+
+      <div id={detailsId} hidden={!isExpanded} className={styles.expandedContent}>
+        <p className={styles.authors}>{project.authors}</p>
+        {project.abstract && (
+          <div className={styles.abstractBlock}>
+            <h4>{project.abstractLabel || 'Abstract'}</h4>
+            <p className={styles.abstract}>{project.abstract}</p>
           </div>
         )}
-
-        {isExpanded && (
-          <motion.div
-            className={styles.expandedContent}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-          >
-            {project.abstract && (
-              <p className={styles.abstract}>{project.abstract}</p>
-            )}
-
-            <div className={styles.citationBlock}>
-              <div className={styles.citationHeader}>
-                <span className={styles.citationLabel}>Citation</span>
-                <button
-                  className={styles.copyButton}
-                  onClick={handleCopyCitation}
-                >
-                  {copied ? 'Copied!' : 'Copy'}
-                </button>
-              </div>
-              <p className={styles.citation}>{project.citation}</p>
-            </div>
-
-            {project.tags && project.tags.length > 0 && (
-              <div className={styles.tags}>
-                {project.tags.map((tag) => (
-                  <span key={tag} className={styles.tag}>{tag}</span>
-                ))}
-              </div>
-            )}
-
-            {project.link && project.link.trim() !== '' && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-                onClick={(e) => e.stopPropagation()}
-              >
-                View Publication →
-              </a>
-            )}
-          </motion.div>
+        <div className={styles.citationBlock}>
+          <div className={styles.citationHeader}>
+            <h4>Citation</h4>
+            <button type="button" className={styles.copyButton} onClick={handleCopyCitation}>
+              {copyStatus === 'Citation copied.' ? 'Copied' : 'Copy citation'}
+            </button>
+          </div>
+          <p className={styles.copyStatus} role="status">{copyStatus}</p>
+          <p className={styles.citation}>{project.citation}</p>
+        </div>
+        {project.tags?.length > 0 && (
+          <ul className={styles.tags} aria-label="Research topics">
+            {project.tags.map(tag => <li key={tag}>{tag}</li>)}
+          </ul>
+        )}
+        {project.link?.trim() && (
+          <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.link}>
+            View publication <span aria-hidden="true">↗</span>
+          </a>
         )}
       </div>
-    </motion.div>
+    </motion.article>
   )
 }

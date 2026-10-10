@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion, LayoutGroup } from 'framer-motion'
+import { motion, LayoutGroup, useReducedMotion } from 'framer-motion'
 import PageTransition from '../components/Layout/PageTransition'
 import ReturnButton from '../components/common/ReturnButton'
 import ProjectCard from '../components/projects/ProjectCard'
@@ -9,56 +9,51 @@ import styles from './ResearchPage.module.css'
 export default function ResearchPage() {
   const [expandedId, setExpandedId] = useState(null)
   const containerRef = useRef(null)
+  const reduceMotion = useReducedMotion()
 
-  // Close expanded card when clicking outside
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
         setExpandedId(null)
       }
     }
-
-    if (expandedId !== null) {
-      document.addEventListener('mousedown', handleClickOutside)
-    }
-
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    if (expandedId !== null) document.addEventListener('pointerdown', handleClickOutside)
+    return () => document.removeEventListener('pointerdown', handleClickOutside)
   }, [expandedId])
-
-  const handleToggle = (id) => {
-    setExpandedId(expandedId === id ? null : id)
-  }
 
   return (
     <PageTransition className={styles.container}>
-      <div className={styles.content}>
+      <main className={styles.content}>
         <ReturnButton />
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
-          <i className="fas fa-microscope" style={{ marginRight: '10px' }}></i>
-          Research
-        </motion.h1>
+        <header className={styles.intro}>
+          <p className={styles.eyebrow}>Research</p>
+          <h1>Research & publications.</h1>
+          <p className={styles.description}>
+            Work on energy forecasting, machine learning, and power systems.
+            Journal articles and conference papers, with abstracts and citations.
+          </p>
+        </header>
 
-        <LayoutGroup>
-          <motion.div
-            className={styles.grid}
-            ref={containerRef}
-            layout
-          >
-            {researchData.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                isExpanded={expandedId === project.id}
-                onToggle={() => handleToggle(project.id)}
-              />
-            ))}
-          </motion.div>
-        </LayoutGroup>
-      </div>
+        <section aria-labelledby="publications-heading">
+          <div className={styles.sectionHeader}>
+            <h2 id="publications-heading">Selected publications</h2>
+            <span className={styles.count}>{researchData.length} publications</span>
+          </div>
+          <LayoutGroup>
+            <motion.div className={styles.grid} ref={containerRef} layout={!reduceMotion}>
+              {researchData.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  isExpanded={expandedId === project.id}
+                  onToggle={() => setExpandedId(current => current === project.id ? null : project.id)}
+                  onClose={() => setExpandedId(null)}
+                />
+              ))}
+            </motion.div>
+          </LayoutGroup>
+        </section>
+      </main>
     </PageTransition>
   )
 }
